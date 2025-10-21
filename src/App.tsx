@@ -4,7 +4,7 @@ import Home from '@/pages/Home'
 
 function App() {
   return (
-    <ThemeProvider defaultTheme="dark" storageKey="mindspace-ui-theme">
+    <ThemeProvider defaultTheme="dark" storageKey="athena-ui-theme">
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>

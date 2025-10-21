@@ -9,7 +9,7 @@ interface TestimonialsSection1Props {
 }
 
 export default function TestimonialsSection1({
-  quote = "CleanPro transformed our home! The team is professional, thorough, and uses eco-friendly products. We finally have time for what matters most.",
+  quote = "Athena transformed our home! The team is professional, thorough, and uses eco-friendly products. We finally have time for what matters most.",
   authorName = "Sarah Martinez",
   authorRole = "Homeowner, Sydney",
   avatarSrc = "/DavidPark.png",

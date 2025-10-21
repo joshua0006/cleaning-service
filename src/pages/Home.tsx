@@ -16,9 +16,9 @@ export default function Home() {
       <HeroSection2 />
       <LogoSection10 />
       <TestimonialsSection1
-        quote="MindSpace is like having a photographic memory for every meeting. We reduced the follow-up emails by 80%."
+        quote="Athena has been a game-changer for our household. The cleaning is consistently excellent, and the team is always reliable. Highly recommended!"
         authorName="David Park"
-        authorRole="Engineering Manager at TechCorp"
+        authorRole="Homeowner, Sydney"
         avatarSrc="/DavidPark.png"
       />
       <BentoGrid6 />

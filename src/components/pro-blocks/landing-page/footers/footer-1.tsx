@@ -68,7 +68,7 @@ export function Footer1() {
         <div className="flex w-full flex-col-reverse items-center gap-12 text-sm lg:flex-row lg:justify-between lg:gap-6">
           {/* Copyright Text */}
           <p className="text-muted-foreground text-center lg:text-left">
-            © 2025 CleanPro. All rights reserved.
+            © 2025 Athena. All rights reserved.
           </p>
 
           {/* Legal Navigation */}
