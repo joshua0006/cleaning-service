@@ -18,16 +18,16 @@ export default function Home() {
       <TestimonialsSection1
         quote="Athena has been a game-changer for our household. The cleaning is consistently excellent, and the team is always reliable. Highly recommended!"
         authorName="David Park"
-        authorRole="Homeowner, Sydney"
+        authorRole="Homeowner, Singapore"
         avatarSrc="/DavidPark.png"
       />
       <BentoGrid6 />
       <FeatureSection9 />
       <StatsSection4 />
       <TestimonialsSection1
-        quote="At TechStar, 43% of meeting content was forgotten within 24 hours. Now, the AI summaries are better than my own notes!"
+        quote="We've been using Athena for six months and couldn't be happier. Our home is spotless every time, and their attention to detail is outstanding!"
         authorName="Monica Kurt"
-        authorRole="Project Manager at TechStar"
+        authorRole="Homeowner, Singapore"
         avatarSrc="/MonicaKurt.png"
       />
       <PricingSection3 />
