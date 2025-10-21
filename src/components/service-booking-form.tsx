@@ -36,7 +36,7 @@ export function ServiceBookingForm() {
       <img
         src="/cleaning-tools.png"
         alt="Professional cleaning tools and supplies"
-        className="w-3/5 mx-auto h-64 object-contain rounded-t-lg"
+        className="w-3/5 mx-auto h-auto max-h-56 object-contain rounded-t-lg"
       />
 
       <Card className="bg-white shadow-lg rounded-t-none" role="form" aria-label="Service booking form">
