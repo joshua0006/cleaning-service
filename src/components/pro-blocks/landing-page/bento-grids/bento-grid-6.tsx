@@ -19,7 +19,7 @@ export function BentoGrid6() {
         {/* Feature Grid */}
         <div className="grid grid-cols-1 gap-3 md:gap-6 lg:grid-cols-3 lg:grid-rows-2">
           {/* Wide Feature Card - Top Left */}
-          <Card className="bg-muted/80 gap-0 overflow-hidden rounded-xl border-none p-0 shadow-none lg:col-span-2">
+          <Card className="bg-white gap-0 overflow-hidden rounded-xl border border-border border-t-2 p-0 shadow-sm lg:col-span-2" style={{ borderTopColor: 'var(--purple-primary)' }}>
             <img
               src="/professional-training.png"
               alt="Professional Training"
@@ -35,7 +35,7 @@ export function BentoGrid6() {
               className="block w-full aspect-[480/332] object-cover object-center md:hidden"
             />
             <CardContent className="flex flex-col gap-2 p-6">
-              <h3 className="text-foreground text-lg font-semibold">
+              <h3 className="text-lg font-semibold" style={{ color: 'var(--purple-primary)' }}>
                 Professional Training
               </h3>
               <p className="text-muted-foreground">
@@ -44,7 +44,7 @@ export function BentoGrid6() {
             </CardContent>
           </Card>
           {/* Regular Feature Card - Top Right */}
-          <Card className="bg-muted/80 gap-0 overflow-hidden rounded-xl border-none p-0 shadow-none lg:col-span-1">
+          <Card className="bg-white gap-0 overflow-hidden rounded-xl border border-border border-t-2 p-0 shadow-sm lg:col-span-1" style={{ borderTopColor: 'var(--purple-primary)' }}>
             <img
               src="/thorough-cleaning.png"
               alt="Thorough Cleaning"
@@ -53,7 +53,7 @@ export function BentoGrid6() {
               className="w-full aspect-[480/332] object-cover object-center"
             />
             <CardContent className="flex flex-col gap-2 p-6">
-              <h3 className="text-foreground text-lg font-semibold">
+              <h3 className="text-lg font-semibold" style={{ color: 'var(--purple-primary)' }}>
                 Thorough Cleaning
               </h3>
               <p className="text-muted-foreground">
@@ -62,7 +62,7 @@ export function BentoGrid6() {
             </CardContent>
           </Card>
           {/* Regular Feature Card - Bottom Left */}
-          <Card className="bg-muted/80 gap-0 overflow-hidden rounded-xl border-none p-0 shadow-none lg:col-span-1">
+          <Card className="bg-white gap-0 overflow-hidden rounded-xl border border-border border-t-2 p-0 shadow-sm lg:col-span-1" style={{ borderTopColor: 'var(--purple-primary)' }}>
             <img
               src="/trusted-cleaners.png"
               alt="Trusted Professionals"
@@ -71,7 +71,7 @@ export function BentoGrid6() {
               className="w-full aspect-[480/332] object-cover object-center"
             />
             <CardContent className="flex flex-col gap-2 p-6">
-              <h3 className="text-foreground text-lg font-semibold">
+              <h3 className="text-lg font-semibold" style={{ color: 'var(--purple-primary)' }}>
                 Trusted Professionals
               </h3>
               <p className="text-muted-foreground">
@@ -80,7 +80,7 @@ export function BentoGrid6() {
             </CardContent>
           </Card>
           {/* Wide Feature Card - Bottom Right */}
-          <Card className="bg-muted/80 gap-0 overflow-hidden rounded-xl border-none p-0 shadow-none lg:col-span-2">
+          <Card className="bg-white gap-0 overflow-hidden rounded-xl border border-border border-t-2 p-0 shadow-sm lg:col-span-2" style={{ borderTopColor: 'var(--purple-primary)' }}>
             <img
               src="/flexible-booking.png"
               alt="Flexible Booking"
@@ -96,7 +96,7 @@ export function BentoGrid6() {
               className="block w-full aspect-[480/332] object-cover object-center md:hidden"
             />
             <CardContent className="flex flex-col gap-2 p-6">
-              <h3 className="text-foreground text-lg font-semibold">
+              <h3 className="text-lg font-semibold" style={{ color: 'var(--purple-primary)' }}>
                 Flexible Booking
               </h3>
               <p className="text-muted-foreground">
