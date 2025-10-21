@@ -1,7 +1,8 @@
 
-import * as React from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
 import { Check, Info } from "lucide-react";
 import {
   Tooltip,
@@ -10,7 +11,6 @@ import {
   TooltipProvider,
 } from "@/components/ui/tooltip";
 import { Tagline } from "@/components/pro-blocks/landing-page/tagline";
-import { VariantProps } from "class-variance-authority";
 
 const pricingData = {
   plans: [
@@ -73,61 +73,99 @@ export function PricingSection3() {
           </div>
 
           {/* Two-Column Side-by-Side Pricing Cards - Stacks on mobile */}
-          <div className="flex w-full flex-col items-center gap-4 md:max-w-3xl md:flex-row md:gap-0">
+          <div className="flex w-full flex-col items-center gap-6 md:max-w-4xl md:flex-row md:items-stretch">
             {pricingData.plans.map((plan, index) => (
               <Card
                 key={plan.name}
-                className={`p-6 shadow-none sm:p-12 md:rounded-tl-xl md:rounded-tr-none md:rounded-br-none md:rounded-bl-xl md:border-r-0 ${
+                className={`relative overflow-hidden transition-all duration-300 hover:shadow-lg ${
                   plan.highlighted
-                    ? "shadow-[0px_0px_0px_6px_rgba(7,46,106,0.05)] md:rounded-xl md:border-r-1"
-                    : ""
-                }`}
+                    ? "border-purple-primary shadow-[0_0_0_2px] shadow-purple-primary/20 bg-purple-dark text-white md:scale-105"
+                    : "border-purple-primary/20 hover:border-purple-primary/40"
+                } w-full p-8 sm:p-10`}
               >
+                {/* Most Popular Badge */}
+                {plan.highlighted && (
+                  <Badge className="absolute right-4 top-4 bg-gradient-to-r from-purple-primary to-purple-light border-0 text-white font-semibold px-4 py-1">
+                    Most Popular
+                  </Badge>
+                )}
+
                 {/* Card Content Container */}
-                <CardContent className="flex flex-col gap-8 p-0">
+                <CardContent className="flex flex-col gap-6 p-0">
                   {/* Plan Header Section */}
-                  <div className="flex flex-col gap-6">
+                  <div className="flex flex-col gap-4">
                     {/* Plan Title and Description Block */}
-                    <div className="relative flex flex-col gap-3">
+                    <div className="relative flex flex-col gap-3 pt-8">
                       <h3
-                        className={`text-lg font-semibold ${
-                          plan.highlighted ? "text-primary" : ""
+                        className={`text-2xl font-bold ${
+                          plan.highlighted
+                            ? "text-white"
+                            : "text-purple-dark"
                         }`}
                       >
                         {plan.name}
                       </h3>
-                      <p className="text-muted-foreground text-sm">
+                      <p
+                        className={`text-sm ${
+                          plan.highlighted
+                            ? "text-white/80"
+                            : "text-muted-foreground"
+                        }`}
+                      >
                         {plan.description}
                       </p>
                     </div>
 
                     {/* Price Display with Currency and Period */}
-                    <div className="flex items-end gap-0.5">
-                      <span className="text-4xl font-semibold">
+                    <div className="flex items-end gap-1">
+                      <span
+                        className={`text-5xl font-bold ${
+                          plan.highlighted ? "text-white" : "text-purple-dark"
+                        }`}
+                      >
                         ${plan.price}
                       </span>
-                      <span className="text-muted-foreground text-base">
+                      <span
+                        className={`pb-2 text-base ${
+                          plan.highlighted
+                            ? "text-white/70"
+                            : "text-muted-foreground"
+                        }`}
+                      >
                         {pricingData.plans[index].period ?? "/month"}
                       </span>
                     </div>
 
                     {/* Call-to-Action Button */}
                     <Button
-                      variant={
-                        plan.variant as VariantProps<
-                          typeof buttonVariants
-                        >["variant"]
-                      }
-                      className="w-full"
+                      variant={plan.highlighted ? "secondary" : "default"}
+                      className={`w-full ${
+                        plan.highlighted
+                          ? "bg-white text-purple-dark hover:bg-white/90 font-semibold"
+                          : "bg-purple-primary hover:bg-purple-light text-white font-semibold"
+                      }`}
                     >
                       Get Started
                     </Button>
                   </div>
 
+                  {/* Separator */}
+                  <Separator
+                    className={
+                      plan.highlighted
+                        ? "bg-white/20"
+                        : "bg-purple-primary/20"
+                    }
+                  />
+
                   {/* Features List Section */}
                   <div className="flex flex-col gap-4">
                     {/* Features Header with Plan Inheritance */}
-                    <p className="text-sm font-medium">
+                    <p
+                      className={`text-sm font-semibold ${
+                        plan.highlighted ? "text-white" : "text-purple-dark"
+                      }`}
+                    >
                       {index === 0
                         ? "What's included:"
                         : `Everything in ${
@@ -135,17 +173,35 @@ export function PricingSection3() {
                           }, plus:`}
                     </p>
                     {/* Features Grid with Tooltips */}
-                    <div className="flex flex-col gap-4">
+                    <div className="flex flex-col gap-3">
                       {plan.features.map((feature, i) => (
                         <div key={i} className="flex items-center gap-3">
-                          <Check className="text-primary h-5 w-5" />
-                          <span className="text-muted-foreground flex-1 text-sm">
+                          <Check
+                            className={`h-5 w-5 flex-shrink-0 ${
+                              plan.highlighted
+                                ? "text-purple-light"
+                                : "text-purple-primary"
+                            }`}
+                          />
+                          <span
+                            className={`flex-1 text-sm ${
+                              plan.highlighted
+                                ? "text-white/90"
+                                : "text-muted-foreground"
+                            }`}
+                          >
                             {feature.name}
                           </span>
                           <TooltipProvider>
                             <Tooltip>
                               <TooltipTrigger>
-                                <Info className="text-muted-foreground h-4 w-4 cursor-pointer opacity-70 hover:opacity-100" />
+                                <Info
+                                  className={`h-4 w-4 cursor-pointer transition-opacity ${
+                                    plan.highlighted
+                                      ? "text-white/60 hover:text-white/90"
+                                      : "text-muted-foreground/60 hover:text-muted-foreground"
+                                  }`}
+                                />
                               </TooltipTrigger>
                               <TooltipContent className="max-w-xs">
                                 <p>{feature.tooltip}</p>
