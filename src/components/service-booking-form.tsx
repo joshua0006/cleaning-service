@@ -48,7 +48,7 @@ export function ServiceBookingForm() {
                 Get Our Service
               </label>
               <Select value={serviceType} onValueChange={setServiceType}>
-                <SelectTrigger id="service-type" className="w-full !h-12 bg-background focus:ring-2 focus:ring-purple-primary" aria-label="Select service type">
+                <SelectTrigger id="service-type" className="w-full !h-12 bg-background focus:ring-2 focus:ring-[var(--purple-primary)]" aria-label="Select service type">
                   <SelectValue placeholder="Service Type" />
                 </SelectTrigger>
                 <SelectContent>
@@ -72,7 +72,7 @@ export function ServiceBookingForm() {
                   <Button
                     id="date-picker"
                     variant="outline"
-                    className="w-full !h-12 justify-start text-left font-normal bg-background focus:ring-2 focus:ring-purple-primary"
+                    className="w-full !h-12 justify-start text-left font-normal bg-background focus:ring-2 focus:ring-[var(--purple-primary)]"
                     aria-label={date ? `Selected date: ${format(date, "PPP")}` : "Pick a date"}
                   >
                     <CalendarIcon className="mr-2 h-4 w-4" aria-hidden="true" />

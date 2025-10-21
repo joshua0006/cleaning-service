@@ -50,10 +50,15 @@ export function LpNavbar1() {
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden w-full flex-row justify-end gap-5 md:flex">
+        <div className="hidden w-full flex-row justify-end items-center gap-5 md:flex">
           <NavMenuItems />
           <a href="#pricing">
-            <Button>Book Now</Button>
+            <Button
+              className="h-12 px-8 text-base font-medium focus:ring-4 focus:ring-orange-cta/50 focus:outline-none transition-all"
+              style={{ backgroundColor: 'var(--orange-cta)', color: 'white' }}
+            >
+              Book Now
+            </Button>
           </a>
         </div>
 
@@ -62,7 +67,12 @@ export function LpNavbar1() {
           <div className="flex w-full flex-col justify-end gap-5 pb-2.5 md:hidden">
             <NavMenuItems />
             <a href="#pricing">
-              <Button className="w-full">Book Now</Button>
+              <Button
+                className="w-full h-12 px-8 text-base font-medium focus:ring-4 focus:ring-orange-cta/50 focus:outline-none transition-all"
+                style={{ backgroundColor: 'var(--orange-cta)', color: 'white' }}
+              >
+                Book Now
+              </Button>
             </a>
           </div>
         )}

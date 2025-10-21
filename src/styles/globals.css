@@ -108,10 +108,10 @@
   --sidebar-ring: oklch(0.929 0.013 255.508);
 
   /* Cleaning service design colors - Bright Blue Theme */
-  --purple-primary: oklch(0.59 0.21 252);
-  --purple-light: oklch(0.8 0.15 252);
-  --purple-dark: oklch(0.45 0.24 252);
-  --orange-cta: oklch(0.65 0.2 252);
+  --purple-primary: oklch(0.59 0.278 239.85);
+  --purple-light: oklch(0.62 0.26 239.85);
+  --purple-dark: oklch(0.45 0.32 239.85);
+  --orange-cta: oklch(0.59 0.278 239.85);
 }
 
 @theme {
