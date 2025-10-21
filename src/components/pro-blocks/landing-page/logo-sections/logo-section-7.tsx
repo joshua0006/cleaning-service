@@ -64,7 +64,7 @@ export function LogoSection10() {
           </div>
         </div>
       </div>
-      <style jsx global>{`
+      <style>{`
         @keyframes infinite-scroll {
           from {
             transform: translateX(0);

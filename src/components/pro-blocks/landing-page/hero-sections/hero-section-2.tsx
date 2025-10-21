@@ -1,5 +1,3 @@
-
-import { Button } from "@/components/ui/button";
 import { ServiceBookingForm } from "@/components/service-booking-form";
 
 export function HeroSection2() {
