@@ -14,20 +14,43 @@ export function HeroSection2() {
         aria-hidden="true"
         role="presentation"
       >
-        {/* Left triangle of V-shape */}
+        {/* Outer (Wider) V-shape - Layer 1 (Background) */}
+        {/* Left triangle of outer V-shape */}
         <div
-          className="absolute left-0 top-0 w-full h-2/3 md:h-3/4"
+          className="absolute left-0 top-0 w-full h-full"
           style={{
-            background: 'var(--purple-primary)',
-            clipPath: 'polygon(0% 0%, 0% 70%, 50% 100%, 0% 0%)'
+            background: 'var(--purple-light)',
+            clipPath: 'polygon(0% 0%, 0% 65%, 50% 75%, 0% 0%)',
+            opacity: 0.9
           }}
         />
-        {/* Right triangle of V-shape */}
+        {/* Right triangle of outer V-shape */}
         <div
-          className="absolute right-0 top-0 w-full h-2/3 md:h-3/4"
+          className="absolute right-0 top-0 w-full h-full"
+          style={{
+            background: 'var(--purple-light)',
+            clipPath: 'polygon(100% 0%, 50% 75%, 100% 65%, 100% 0%)',
+            opacity: 0.9
+          }}
+        />
+
+        {/* Inner V-shape - Layer 2 (Foreground) */}
+        {/* Left triangle of inner V-shape */}
+        <div
+          className="absolute left-0 top-0 w-full h-full"
           style={{
             background: 'var(--purple-primary)',
-            clipPath: 'polygon(100% 0%, 100% 70%, 50% 100%, 100% 0%)'
+            clipPath: 'polygon(0% 40%, 0% 95%, 50% 95%, 50% 70%)',
+            opacity: 0.9
+          }}
+        />
+        {/* Right triangle of inner V-shape */}
+        <div
+          className="absolute right-0 top-0 w-full h-full"
+          style={{
+            background: 'var(--purple-primary)',
+            clipPath: 'polygon(100% 30%, 50% 70%, 50% 95%, 100% 95%)',
+            opacity: 0.9
           }}
         />
       </div>
@@ -50,20 +73,8 @@ export function HeroSection2() {
             </p>
           </div>
 
-          {/* CTA Button */}
-          <div className="flex justify-center">
-            <Button
-              size="lg"
-              className="px-8 py-6 text-lg font-medium rounded-full focus:ring-4 focus:ring-orange-cta/50 focus:outline-none transition-all"
-              style={{ backgroundColor: 'var(--orange-cta)', color: 'white' }}
-              aria-label="Get started with our cleaning service"
-            >
-              Get Started
-            </Button>
-          </div>
-
           {/* Service Booking Form - Positioned to cover V-shape endpoint */}
-          <div className="w-full mt-12 md:mt-16">
+          <div className="w-full ">
             <ServiceBookingForm />
           </div>
         </div>
