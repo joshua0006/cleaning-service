@@ -110,7 +110,7 @@
   /* Cleaning service design colors - Bright Blue Theme */
   --purple-primary: oklch(0.59 0.278 239.85);
   --purple-light: oklch(0.62 0.26 239.85);
-  --purple-dark: oklch(0.45 0.32 239.85);
+  --purple-dark: oklch(0.19 0.08 265); /* #15275c */
   --orange-cta: oklch(0.59 0.278 239.85);
 }
 
