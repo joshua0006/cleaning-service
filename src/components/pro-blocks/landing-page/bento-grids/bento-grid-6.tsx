@@ -21,18 +21,18 @@ export function BentoGrid6() {
           {/* Wide Feature Card - Top Left */}
           <Card className="bg-muted/80 gap-0 overflow-hidden rounded-xl border-none p-0 shadow-none lg:col-span-2">
             <img
-              src="/ai-meeting-notes.png"
-              alt="AI Meeting Notes"
+              src="/professional-training.png"
+              alt="Professional Training"
               width={813}
               height={332}
-              className="hidden h-auto w-full object-cover md:block md:h-[332px]"
+              className="hidden w-full aspect-[813/332] object-cover object-center md:block"
             />
             <img
-              src="/ai-meeting-notes_mobile.png"
-              alt="AI Meeting Notes"
+              src="/professional-training_mobile.png"
+              alt="Professional Training"
               width={480}
               height={332}
-              className="block h-auto w-full md:hidden"
+              className="block w-full aspect-[480/332] object-cover object-center md:hidden"
             />
             <CardContent className="flex flex-col gap-2 p-6">
               <h3 className="text-foreground text-lg font-semibold">
@@ -46,11 +46,11 @@ export function BentoGrid6() {
           {/* Regular Feature Card - Top Right */}
           <Card className="bg-muted/80 gap-0 overflow-hidden rounded-xl border-none p-0 shadow-none lg:col-span-1">
             <img
-              src="/universal-search.png"
-              alt="Universal Search"
+              src="/thorough-cleaning.png"
+              alt="Thorough Cleaning"
               width={480}
               height={332}
-              className="h-auto w-full object-cover md:h-[332px]"
+              className="w-full aspect-[480/332] object-cover object-center"
             />
             <CardContent className="flex flex-col gap-2 p-6">
               <h3 className="text-foreground text-lg font-semibold">
@@ -64,11 +64,11 @@ export function BentoGrid6() {
           {/* Regular Feature Card - Bottom Left */}
           <Card className="bg-muted/80 gap-0 overflow-hidden rounded-xl border-none p-0 shadow-none lg:col-span-1">
             <img
-              src="/smart-tags.png"
-              alt="AI Meeting Notes"
+              src="/trusted-cleaners.png"
+              alt="Trusted Professionals"
               width={480}
               height={332}
-              className="h-auto w-full object-cover md:h-[332px]"
+              className="w-full aspect-[480/332] object-cover object-center"
             />
             <CardContent className="flex flex-col gap-2 p-6">
               <h3 className="text-foreground text-lg font-semibold">
@@ -82,18 +82,18 @@ export function BentoGrid6() {
           {/* Wide Feature Card - Bottom Right */}
           <Card className="bg-muted/80 gap-0 overflow-hidden rounded-xl border-none p-0 shadow-none lg:col-span-2">
             <img
-              src="/team-insights.png"
-              alt="Team Insights"
+              src="/flexible-booking.png"
+              alt="Flexible Booking"
               width={813}
               height={332}
-              className="hidden h-[332px] w-full object-cover md:block"
+              className="hidden w-full aspect-[813/332] object-cover object-center md:block"
             />
             <img
-              src="/team-insights_mobile.png"
-              alt="Team Insights"
+              src="/flexible-booking_mobile.png"
+              alt="Flexible Booking"
               width={480}
               height={332}
-              className="block h-auto w-full object-cover md:hidden md:h-[332px]"
+              className="block w-full aspect-[480/332] object-cover object-center md:hidden"
             />
             <CardContent className="flex flex-col gap-2 p-6">
               <h3 className="text-foreground text-lg font-semibold">
