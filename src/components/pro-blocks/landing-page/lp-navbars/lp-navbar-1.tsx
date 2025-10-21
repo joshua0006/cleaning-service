@@ -21,10 +21,30 @@ interface NavMenuItemsProps {
   onItemClick?: () => void;
 }
 
+const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  e.preventDefault();
+  const targetId = href.replace('#', '');
+  const targetElement = document.getElementById(targetId);
+
+  if (targetElement) {
+    targetElement.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    });
+  }
+};
+
 const NavMenuItems = ({ className, onItemClick }: NavMenuItemsProps) => (
   <div className={`flex flex-col gap-2 md:flex-row md:gap-1 ${className ?? ""}`}>
     {MENU_ITEMS.map(({ label, href }) => (
-      <a key={label} href={href} onClick={onItemClick}>
+      <a
+        key={label}
+        href={href}
+        onClick={(e) => {
+          handleSmoothScroll(e, href);
+          onItemClick?.();
+        }}
+      >
         <Button
           variant="ghost"
           className="w-full md:w-auto h-12 md:h-10 text-base md:text-sm justify-start md:justify-center"
@@ -51,7 +71,10 @@ export function LpNavbar1() {
         {/* Desktop Navigation */}
         <div className="hidden w-full flex-row justify-end items-center gap-5 md:flex">
           <NavMenuItems />
-          <a href="#pricing">
+          <a
+            href="#pricing"
+            onClick={(e) => handleSmoothScroll(e, '#pricing')}
+          >
             <Button
               className="h-12 px-8 text-base font-medium focus:ring-4 focus:ring-orange-cta/50 focus:outline-none transition-all hover:opacity-90"
               style={{ backgroundColor: 'var(--orange-cta)', color: 'white' }}
@@ -76,7 +99,13 @@ export function LpNavbar1() {
           <SheetContent side="right" className="w-[300px] sm:w-[350px]">
             <div className="flex flex-col gap-6 mt-8">
               <NavMenuItems onItemClick={closeMenu} />
-              <a href="#pricing" onClick={closeMenu}>
+              <a
+                href="#pricing"
+                onClick={(e) => {
+                  handleSmoothScroll(e, '#pricing');
+                  closeMenu();
+                }}
+              >
                 <Button
                   className="w-full h-12 px-8 text-base font-medium focus:ring-4 focus:ring-orange-cta/50 focus:outline-none transition-all hover:opacity-90"
                   style={{ backgroundColor: 'var(--orange-cta)', color: 'white' }}

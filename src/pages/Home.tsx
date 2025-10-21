@@ -15,12 +15,14 @@ export default function Home() {
       <LpNavbar1 />
       <HeroSection2 />
       <LogoSection10 />
-      <TestimonialsSection1
-        quote="Athena has been a game-changer for our household. The cleaning is consistently excellent, and the team is always reliable. Highly recommended!"
-        authorName="David Park"
-        authorRole="Homeowner, Singapore"
-        avatarSrc="/DavidPark.png"
-      />
+      <section id="testimonials">
+        <TestimonialsSection1
+          quote="Athena has been a game-changer for our household. The cleaning is consistently excellent, and the team is always reliable. Highly recommended!"
+          authorName="David Park"
+          authorRole="Homeowner, Singapore"
+          avatarSrc="/DavidPark.png"
+        />
+      </section>
       <BentoGrid6 />
       <FeatureSection9 />
       <StatsSection4 />
