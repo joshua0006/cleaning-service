@@ -9,10 +9,10 @@ export function BentoGrid6() {
         {/* Section Title */}
         <div className="section-title-gap-lg mx-auto flex max-w-xl flex-col items-center text-center">
           {/* Tagline */}
-          <Tagline>Features</Tagline>
+          <Tagline>Why Choose Us</Tagline>
           {/* Main Heading */}
           <h2 className="heading-lg">
-            Capture, organize, and surface meeting insights
+            Professional cleaning you can trust
           </h2>
         </div>
 
@@ -36,10 +36,10 @@ export function BentoGrid6() {
             />
             <CardContent className="flex flex-col gap-2 p-6">
               <h3 className="text-foreground text-lg font-semibold">
-                AI Meeting Notes
+                Professional Training
               </h3>
               <p className="text-muted-foreground">
-                Automatic summaries with key decisions & action items
+                200+ hours of hotel-grade training for every cleaner
               </p>
             </CardContent>
           </Card>
@@ -54,10 +54,10 @@ export function BentoGrid6() {
             />
             <CardContent className="flex flex-col gap-2 p-6">
               <h3 className="text-foreground text-lg font-semibold">
-                Universal Search
+                Thorough Cleaning
               </h3>
               <p className="text-muted-foreground">
-                Find any discussion across all meetings
+                50-point inspection checklist for every service
               </p>
             </CardContent>
           </Card>
@@ -72,10 +72,10 @@ export function BentoGrid6() {
             />
             <CardContent className="flex flex-col gap-2 p-6">
               <h3 className="text-foreground text-lg font-semibold">
-                Smart Tags
+                Trusted Professionals
               </h3>
               <p className="text-muted-foreground">
-                Categorize by project, topic, or participants
+                Background-checked and insured cleaners
               </p>
             </CardContent>
           </Card>
@@ -97,10 +97,10 @@ export function BentoGrid6() {
             />
             <CardContent className="flex flex-col gap-2 p-6">
               <h3 className="text-foreground text-lg font-semibold">
-                Team Insights
+                Flexible Booking
               </h3>
               <p className="text-muted-foreground">
-                Meeting analytics and participation metrics
+                Same-day availability and easy rescheduling
               </p>
             </CardContent>
           </Card>

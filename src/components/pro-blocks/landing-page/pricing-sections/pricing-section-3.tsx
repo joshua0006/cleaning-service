@@ -15,34 +15,35 @@ import { VariantProps } from "class-variance-authority";
 const pricingData = {
   plans: [
     {
-      name: "Free",
+      name: "Basic",
       description:
-        "A short benefit statement that highlights the ideal user for this tier.",
+        "Perfect for maintaining a clean home with regular weekly visits.",
       features: [
-        { name: "10 meetings/month", tooltip: "Usage limit for the free tier" },
+        { name: "Weekly 2-hour cleaning", tooltip: "Consistent weekly service" },
         {
-          name: "Basic transcription",
-          tooltip: "Standard accuracy transcription",
+          name: "Professional cleaners",
+          tooltip: "Trained and background-checked",
         },
-        { name: "30-day history", tooltip: "Access past meetings for 30 days" },
+        { name: "Eco-friendly products", tooltip: "Safe for family and pets" },
+        { name: "Satisfaction guarantee", tooltip: "100% quality assurance" },
       ],
-      price: 0,
+      price: 120,
       period: "/month",
       variant: "outline",
     },
     {
-      name: "Pro",
+      name: "Premium",
       description:
-        "A short benefit statement that highlights the ideal user for this tier.",
+        "For those who want extra attention and comprehensive cleaning coverage.",
       features: [
-        { name: "Unlimited meetings", tooltip: "No caps on meeting count" },
-        { name: "Advanced transcription", tooltip: "Higher accuracy models" },
-        { name: "Unlimited history", tooltip: "Full access to past meetings" },
-        { name: "Integrations", tooltip: "Connect to your favorite tools" },
-        { name: "24/7 support", tooltip: "Round-the-clock assistance" },
+        { name: "Twice weekly cleaning", tooltip: "More frequent service" },
+        { name: "Monthly deep clean", tooltip: "Thorough detailed cleaning" },
+        { name: "Priority scheduling", tooltip: "Book preferred time slots" },
+        { name: "Same-day service", tooltip: "Last-minute availability" },
+        { name: "Dedicated cleaner", tooltip: "Same professional each visit" },
       ],
-      price: 15,
-      period: "/user/month",
+      price: 220,
+      period: "/month",
       variant: "default",
       highlighted: true,
     },
@@ -119,7 +120,7 @@ export function PricingSection3() {
                       }
                       className="w-full"
                     >
-                      Purchase plan
+                      Get Started
                     </Button>
                   </div>
 

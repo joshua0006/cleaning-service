@@ -52,60 +52,56 @@ export function FaqSection2() {
                 {/* FAQ Item 1 */}
                 <AccordionItem value="item-1">
                   <AccordionTrigger className="text-left">
-                    How does MindSpace join my meetings?
+                    What services do you offer?
                   </AccordionTrigger>
                   <AccordionContent>
-                    MindSpace automatically joins your scheduled meetings
-                    through calendar integration. Simply connect your calendar
-                    (Google Calendar, Outlook, etc.) and MindSpace will join
-                    meetings at the scheduled time. You can also manually invite
-                    MindSpace to any meeting by adding our bot email to your
-                    meeting participants.
+                    We offer a comprehensive range of cleaning services including
+                    regular home cleaning, deep cleaning, move in/out cleaning,
+                    spring cleaning, post-renovation cleaning, and specialized
+                    services like carpet, sofa, and mattress cleaning. All services
+                    are performed by trained, background-checked professionals
+                    using eco-friendly products.
                   </AccordionContent>
                 </AccordionItem>
 
                 {/* FAQ Item 2 */}
                 <AccordionItem value="item-2">
                   <AccordionTrigger className="text-left">
-                    What languages does MindSpace support?
+                    How much does cleaning cost?
                   </AccordionTrigger>
                   <AccordionContent>
-                    MindSpace currently supports English, Spanish, French,
-                    German, Italian, Portuguese, and Japanese. We&apos;re
-                    continuously adding more languages based on user demand. The
-                    AI transcription and analysis work in the primary language
-                    of your meeting, with automatic language detection for
-                    mixed-language conversations.
+                    Our regular home cleaning starts at $25-35 per hour. We also
+                    offer monthly packages starting at $120/month for weekly
+                    service. Deep cleaning and specialized services are priced
+                    based on home size and specific requirements. Contact us for
+                    a free quote tailored to your needs.
                   </AccordionContent>
                 </AccordionItem>
 
                 {/* FAQ Item 3 */}
                 <AccordionItem value="item-3">
                   <AccordionTrigger className="text-left">
-                    Can I edit or delete meeting transcripts?
+                    Are your cleaners background-checked?
                   </AccordionTrigger>
                   <AccordionContent>
-                    Yes, you have full control over your meeting transcripts.
-                    You can edit any part of the transcript to correct errors,
-                    add context, or remove sensitive information. You can also
-                    delete entire transcripts or specific sections. All edits
-                    are tracked with timestamps, and you can revert changes at
-                    any time.
+                    Yes, absolutely. Every cleaner on our team undergoes a
+                    thorough background check and comprehensive training program
+                    including 200+ hours of hotel-grade cleaning training. All
+                    our professionals are fully insured and bonded for your
+                    peace of mind.
                   </AccordionContent>
                 </AccordionItem>
 
                 {/* FAQ Item 4 */}
                 <AccordionItem value="item-4">
                   <AccordionTrigger className="text-left">
-                    How accurate is the AI transcription?
+                    What if I'm not satisfied with the cleaning?
                   </AccordionTrigger>
                   <AccordionContent>
-                    Our AI transcription achieves 95%+ accuracy in ideal
-                    conditions (clear audio, minimal background noise, standard
-                    accents). Accuracy may vary with poor audio quality, heavy
-                    accents, or technical terminology. We continuously improve
-                    our models, and you can always manually edit transcripts for
-                    perfect accuracy.
+                    We stand behind our 100% satisfaction guarantee. If you're
+                    not completely happy with our service, contact us within 24
+                    hours and we'll return to re-clean the areas of concern at
+                    no additional charge. Your satisfaction is our top priority.
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
@@ -126,57 +122,56 @@ export function FaqSection2() {
                 {/* FAQ Item 1 */}
                 <AccordionItem value="billing-1">
                   <AccordionTrigger className="text-left">
-                    How does the free plan work?
+                    Do I need to provide cleaning supplies?
                   </AccordionTrigger>
                   <AccordionContent>
-                    Our free plan includes up to 5 hours of meeting
-                    transcription per month, basic AI summaries, and access to
-                    core features. You can upgrade to paid plans anytime for
-                    unlimited transcription, advanced analytics, and premium
-                    features. No credit card required to start with the free
-                    plan.
+                    No, our cleaners bring all necessary cleaning supplies and
+                    equipment, including eco-friendly, non-toxic products that
+                    are safe for your family and pets. If you prefer us to use
+                    specific products, just let us know and we'll accommodate
+                    your preferences.
                   </AccordionContent>
                 </AccordionItem>
 
                 {/* FAQ Item 2 */}
                 <AccordionItem value="billing-2">
                   <AccordionTrigger className="text-left">
-                    Can I change my plan anytime?
+                    How do I reschedule or cancel?
                   </AccordionTrigger>
                   <AccordionContent>
-                    Yes, you can upgrade, downgrade, or cancel your plan at any
-                    time. Changes take effect immediately, and we&apos;ll
-                    prorate any charges. If you downgrade, you&apos;ll keep
-                    access to premium features until the end of your current
-                    billing period. No long-term contracts or cancellation fees.
+                    You can easily reschedule or cancel through our online
+                    booking system or mobile app. We require 24 hours notice for
+                    changes to avoid cancellation fees. For same-day changes,
+                    please contact our customer service team directly and we'll
+                    do our best to accommodate you.
                   </AccordionContent>
                 </AccordionItem>
 
                 {/* FAQ Item 3 */}
                 <AccordionItem value="billing-3">
                   <AccordionTrigger className="text-left">
-                    Do you offer annual billing discounts?
+                    What areas do you serve?
                   </AccordionTrigger>
                   <AccordionContent>
-                    Yes! We offer a 20% discount when you choose annual billing.
-                    This applies to all paid plans and can save you
-                    significantly over monthly billing. Annual plans are billed
-                    upfront and automatically renew unless cancelled. You can
-                    still change plans during your annual term.
+                    We currently serve the Greater Sydney area including all
+                    major suburbs. Enter your postcode on our booking page to
+                    check availability in your area. We're continuously
+                    expanding our service areas, so if we don't cover your
+                    location yet, join our waitlist to be notified when we do.
                   </AccordionContent>
                 </AccordionItem>
 
                 {/* FAQ Item 4 */}
                 <AccordionItem value="billing-4">
                   <AccordionTrigger className="text-left">
-                    What payment methods do you accept?
+                    Is there a minimum booking time?
                   </AccordionTrigger>
                   <AccordionContent>
-                    We accept all major credit cards (Visa, Mastercard, American
-                    Express, Discover), PayPal, and bank transfers for annual
-                    plans. All payments are processed securely through Stripe.
-                    We also support corporate invoicing for enterprise customers
-                    with net 30 payment terms.
+                    Our standard minimum booking is 2 hours for regular cleaning
+                    services. This ensures our cleaners have adequate time to
+                    deliver thorough, high-quality results. Deep cleaning and
+                    specialized services may require longer minimum booking times
+                    depending on the scope of work.
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>

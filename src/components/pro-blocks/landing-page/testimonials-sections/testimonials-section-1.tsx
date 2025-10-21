@@ -9,9 +9,9 @@ interface TestimonialsSection1Props {
 }
 
 export default function TestimonialsSection1({
-  quote = "MindSpace is like having a photographic memory for every meeting. We reduced the follow-up emails by 80%.",
-  authorName = "David Park",
-  authorRole = "Engineering Manager at TechCorp",
+  quote = "CleanPro transformed our home! The team is professional, thorough, and uses eco-friendly products. We finally have time for what matters most.",
+  authorName = "Sarah Martinez",
+  authorRole = "Homeowner, Sydney",
   avatarSrc = "/DavidPark.png",
 }: TestimonialsSection1Props) {
   return (

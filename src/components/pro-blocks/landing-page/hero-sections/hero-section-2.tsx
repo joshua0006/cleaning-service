@@ -16,15 +16,15 @@ export function HeroSection2() {
           {/* Section Title */}
           <div className="section-title-gap-xl flex flex-col">
             {/* Tagline */}
-            <Tagline>MindSpace</Tagline>
+            <Tagline>CleanPro</Tagline>
             {/* Main Heading */}
             <h1 id="hero-heading" className="heading-xl">
-              Never forget what was said in a meeting again
+              Your Trusted Partner in Professional Home Cleaning
             </h1>
             {/* Description */}
             <p className="text-muted-foreground text-base lg:text-lg">
-              AI that joins, transcribes, and transforms your meetings into
-              structured knowledge
+              Quality cleaning services with trained, background-checked
+              professionals who care about your home
             </p>
           </div>
 
@@ -35,7 +35,7 @@ export function HeroSection2() {
                 <Check className="text-primary h-5 w-5" />
               </div>
               <span className="text-card-foreground text-base leading-6 font-medium">
-                Deal progress tracking
+                200+ hours of hotel-grade training
               </span>
             </div>
 
@@ -44,7 +44,7 @@ export function HeroSection2() {
                 <Check className="text-primary h-5 w-5" />
               </div>
               <span className="text-card-foreground text-base leading-6 font-medium">
-                Customer sentiment analysis
+                Flexible scheduling with same-day availability
               </span>
             </div>
 
@@ -53,16 +53,16 @@ export function HeroSection2() {
                 <Check className="text-primary h-5 w-5" />
               </div>
               <span className="text-card-foreground text-base leading-6 font-medium">
-                Automatic CRM updates
+                100% satisfaction guarantee
               </span>
             </div>
           </div>
 
           {/* CTA Buttons */}
           <div className="flex flex-col gap-3 sm:flex-row">
-            <Button>Try for free</Button>
+            <Button>Book Cleaning</Button>
             <Button variant="ghost">
-              How it works
+              View Services
               <ArrowRight />
             </Button>
           </div>

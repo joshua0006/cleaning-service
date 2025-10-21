@@ -32,7 +32,7 @@ export function Footer1() {
               href="#features"
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
-              Features
+              Services
             </a>
             <a
               href="#how-it-works"
@@ -41,23 +41,22 @@ export function Footer1() {
               How it works
             </a>
             <a
-              href="https://www.shadcndesign.com/pro-blocks"
-              target="_blank"
+              href="#pricing"
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
-              Docs
+              Pricing
+            </a>
+            <a
+              href="#testimonials"
+              className="text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Reviews
             </a>
             <a
               href="#faq"
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
               FAQ
-            </a>
-            <a
-              href="#pricing"
-              className="text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Pricing
             </a>
           </nav>
         </div>
@@ -69,23 +68,7 @@ export function Footer1() {
         <div className="flex w-full flex-col-reverse items-center gap-12 text-sm lg:flex-row lg:justify-between lg:gap-6">
           {/* Copyright Text */}
           <p className="text-muted-foreground text-center lg:text-left">
-            Built with{" "}
-            <a
-              href="https://www.shadcndesign.com/pro-blocks"
-              className="underline"
-              target="_blank"
-            >
-              Pro Blocks
-            </a>{" "}
-            by{" "}
-            <a
-              href="https://www.shadcndesign.com/"
-              className="underline"
-              target="_blank"
-            >
-              shadcndesign.com
-            </a>
-            . All rights reserved.
+            © 2025 CleanPro. All rights reserved.
           </p>
 
           {/* Legal Navigation */}
@@ -94,25 +77,22 @@ export function Footer1() {
             aria-label="Legal links"
           >
             <a
-              href="https://www.shadcndesign.com/pro-blocks"
-              target="_blank"
+              href="#"
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
               Privacy Policy
             </a>
             <a
-              href="https://www.shadcndesign.com/pro-blocks"
-              target="_blank"
+              href="#"
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
               Terms of Service
             </a>
             <a
-              href="https://www.shadcndesign.com/pro-blocks"
-              target="_blank"
+              href="#"
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
-              Cookies Settings
+              Contact Us
             </a>
           </nav>
         </div>
