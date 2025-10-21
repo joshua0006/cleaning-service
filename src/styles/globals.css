@@ -37,6 +37,10 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+  --color-purple-primary: var(--purple-primary);
+  --color-purple-light: var(--purple-light);
+  --color-purple-dark: var(--purple-dark);
+  --color-orange-cta: var(--orange-cta);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -102,6 +106,12 @@
   --sidebar-accent-foreground: oklch(0.282 0.087 267.935);
   --sidebar-border: oklch(0.929 0.013 255.508);
   --sidebar-ring: oklch(0.929 0.013 255.508);
+
+  /* Cleaning service design colors */
+  --purple-primary: oklch(0.584 0.183 283.417);
+  --purple-light: oklch(0.684 0.143 283.417);
+  --purple-dark: oklch(0.484 0.223 283.417);
+  --orange-cta: oklch(0.746 0.149 42.5);
 }
 
 @theme {
@@ -118,6 +128,17 @@
   }
   button {
     cursor: pointer;
+  }
+
+  /* Reduced motion support for accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
   .heading-xl {
     font-family: Onest;
@@ -224,5 +245,25 @@
   .heading-sm {
     font-family: Onest;
     font-weight: 600;
+  }
+}
+
+/* V-shape background utilities for accessibility and reusability */
+.v-shape-left {
+  clip-path: polygon(0% 0%, 0% 70%, 50% 100%, 0% 0%);
+}
+
+.v-shape-right {
+  clip-path: polygon(100% 0%, 100% 70%, 50% 100%, 100% 0%);
+}
+
+/* Mobile V-shape adjustments */
+@media (max-width: 768px) {
+  .v-shape-left {
+    clip-path: polygon(0% 0%, 0% 60%, 50% 90%, 0% 0%);
+  }
+
+  .v-shape-right {
+    clip-path: polygon(100% 0%, 100% 60%, 50% 90%, 100% 0%);
   }
 }

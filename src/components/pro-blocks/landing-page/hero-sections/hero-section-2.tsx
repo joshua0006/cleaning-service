@@ -1,82 +1,71 @@
 
 import { Button } from "@/components/ui/button";
-import { Check, ArrowRight } from "lucide-react";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
-import { Tagline } from "@/components/pro-blocks/landing-page/tagline";
+import { ServiceBookingForm } from "@/components/service-booking-form";
 
 export function HeroSection2() {
   return (
     <section
-      className="bg-secondary section-padding-y"
+      className="relative overflow-hidden bg-white section-padding-y"
       aria-labelledby="hero-heading"
     >
-      <div className="container-padding-x container mx-auto flex flex-col items-center gap-12 lg:flex-row lg:gap-16">
-        {/* Left Column */}
-        <div className="flex flex-1 flex-col gap-6 lg:gap-8">
-          {/* Section Title */}
-          <div className="section-title-gap-xl flex flex-col">
-            {/* Tagline */}
-            <Tagline>CleanPro</Tagline>
-            {/* Main Heading */}
-            <h1 id="hero-heading" className="heading-xl">
-              Your Trusted Partner in Professional Home Cleaning
+      {/* V-Shaped Violet Background - Accessibility compliant */}
+      <div
+        className="absolute inset-0 overflow-hidden pointer-events-none"
+        aria-hidden="true"
+        role="presentation"
+      >
+        {/* Left triangle of V-shape */}
+        <div
+          className="absolute left-0 top-0 w-full h-2/3 md:h-3/4"
+          style={{
+            background: 'var(--purple-primary)',
+            clipPath: 'polygon(0% 0%, 0% 70%, 50% 100%, 0% 0%)'
+          }}
+        />
+        {/* Right triangle of V-shape */}
+        <div
+          className="absolute right-0 top-0 w-full h-2/3 md:h-3/4"
+          style={{
+            background: 'var(--purple-primary)',
+            clipPath: 'polygon(100% 0%, 100% 70%, 50% 100%, 100% 0%)'
+          }}
+        />
+      </div>
+
+      {/* Content Container */}
+      <div className="container-padding-x container mx-auto relative z-10">
+        {/* Centered Content */}
+        <div className="flex flex-col items-center text-center gap-6 max-w-4xl mx-auto">
+          {/* Main Heading */}
+          <div className="section-title-gap-xl flex flex-col items-center">
+            <h1 id="hero-heading" className="heading-xl text-foreground max-w-3xl">
+              Guaranteed House Cleaning Service
             </h1>
-            {/* Description */}
-            <p className="text-muted-foreground text-base lg:text-lg">
-              Quality cleaning services with trained, background-checked
-              professionals who care about your home
+
+            {/* Description with trust signals */}
+            <p className="text-foreground/80 text-base lg:text-lg max-w-2xl">
+              More than five years of providing home cleaning services.
+              <br />
+              98% of our customers are satisfied with our services.
             </p>
           </div>
 
-          {/* Feature List */}
-          <div className="flex flex-col gap-2 md:gap-3">
-            <div className="flex items-start gap-3">
-              <div className="pt-0.5">
-                <Check className="text-primary h-5 w-5" />
-              </div>
-              <span className="text-card-foreground text-base leading-6 font-medium">
-                200+ hours of hotel-grade training
-              </span>
-            </div>
-
-            <div className="flex items-start gap-3">
-              <div className="pt-0.5">
-                <Check className="text-primary h-5 w-5" />
-              </div>
-              <span className="text-card-foreground text-base leading-6 font-medium">
-                Flexible scheduling with same-day availability
-              </span>
-            </div>
-
-            <div className="flex items-start gap-3">
-              <div className="pt-0.5">
-                <Check className="text-primary h-5 w-5" />
-              </div>
-              <span className="text-card-foreground text-base leading-6 font-medium">
-                100% satisfaction guarantee
-              </span>
-            </div>
-          </div>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col gap-3 sm:flex-row">
-            <Button>Book Cleaning</Button>
-            <Button variant="ghost">
-              View Services
-              <ArrowRight />
+          {/* CTA Button */}
+          <div className="flex justify-center">
+            <Button
+              size="lg"
+              className="px-8 py-6 text-lg font-medium rounded-full focus:ring-4 focus:ring-orange-cta/50 focus:outline-none transition-all"
+              style={{ backgroundColor: 'var(--orange-cta)', color: 'white' }}
+              aria-label="Get started with our cleaning service"
+            >
+              Get Started
             </Button>
           </div>
-        </div>
 
-        {/* Right Column */}
-        <div className="w-full flex-1">
-          <AspectRatio ratio={1 / 1}>
-            <img
-              src="/Hero.png"
-              alt="Hero visual"
-              className="h-full w-full rounded-xl object-cover"
-            />
-          </AspectRatio>
+          {/* Service Booking Form - Positioned to cover V-shape endpoint */}
+          <div className="w-full mt-12 md:mt-16">
+            <ServiceBookingForm />
+          </div>
         </div>
       </div>
     </section>
