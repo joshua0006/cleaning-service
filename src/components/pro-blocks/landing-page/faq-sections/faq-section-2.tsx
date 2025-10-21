@@ -29,7 +29,7 @@ export function FaqSection2() {
               We&apos;ve compiled the most important information to help you get
               the most out of your experience. Can&apos;t find what you&apos;re
               looking for?{" "}
-              <a href="#" className="text-primary underline">
+              <a href="#" className="text-purple-primary underline">
                 Contact us.
               </a>
             </p>
