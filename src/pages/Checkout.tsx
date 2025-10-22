@@ -111,8 +111,8 @@ export default function Checkout() {
         return
       }
 
-      // Call backend to create checkout session
-      const response = await fetch("http://localhost:8000/api/create-checkout-session", {
+      // Call Netlify function to create checkout session
+      const response = await fetch("/.netlify/functions/create-checkout-session", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
