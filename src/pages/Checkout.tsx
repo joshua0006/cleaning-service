@@ -7,7 +7,6 @@ import { LpNavbar1 } from "@/components/pro-blocks/landing-page/lp-navbars/lp-na
 import { Footer1 } from "@/components/pro-blocks/landing-page/footers/footer-1"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Badge } from "@/components/ui/badge"
 import { Check } from "lucide-react"
 import { Calendar } from "@/components/ui/calendar"
@@ -353,44 +352,102 @@ export default function Checkout() {
               </div>
 
               {/* Section 2: Frequency */}
-              <Card>
-                <CardHeader>
-                  <CardTitle>How often do you need your cleaner?</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <RadioGroup
-                    value={bookingData.frequency}
-                    onValueChange={(value) =>
-                      setBookingData({ ...bookingData, frequency: value })
+              <div>
+                <h3 className="text-xl font-semibold mb-4">How often do you need your cleaner?</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+
+                  {/* One-time */}
+                  <button
+                    type="button"
+                    onClick={() => setBookingData({ ...bookingData, frequency: "one-time" })}
+                    className={`relative p-4 rounded-lg border-2 transition-all duration-200 hover:shadow-md ${
+                      bookingData.frequency === "one-time"
+                        ? "border-purple-primary bg-purple-primary/5"
+                        : "border-border hover:border-purple-primary/50"
+                    }`}
+                    style={
+                      bookingData.frequency === "one-time"
+                        ? { borderColor: "var(--purple-primary)" }
+                        : undefined
                     }
                   >
-                    <div className="flex items-center space-x-2 mb-3">
-                      <RadioGroupItem value="one-time" id="one-time" />
-                      <Label htmlFor="one-time" className="cursor-pointer">
-                        One-time service
-                      </Label>
+                    <div className="text-center">
+                      <div className="font-semibold">One-time</div>
+                      <div className="text-sm text-muted-foreground mt-1">Single service</div>
                     </div>
-                    <div className="flex items-center space-x-2 mb-3">
-                      <RadioGroupItem value="weekly" id="weekly" />
-                      <Label htmlFor="weekly" className="cursor-pointer">
-                        Weekly (10% discount)
-                      </Label>
+                  </button>
+
+                  {/* Weekly */}
+                  <button
+                    type="button"
+                    onClick={() => setBookingData({ ...bookingData, frequency: "weekly" })}
+                    className={`relative p-4 rounded-lg border-2 transition-all duration-200 hover:shadow-md ${
+                      bookingData.frequency === "weekly"
+                        ? "border-purple-primary bg-purple-primary/5"
+                        : "border-border hover:border-purple-primary/50"
+                    }`}
+                    style={
+                      bookingData.frequency === "weekly"
+                        ? { borderColor: "var(--purple-primary)" }
+                        : undefined
+                    }
+                  >
+                    <Badge className="absolute -top-2 left-1/2 -translate-x-1/2 bg-green-600 text-white text-xs">
+                      Save 10%
+                    </Badge>
+                    <div className="text-center mt-2">
+                      <div className="font-semibold">Weekly</div>
+                      <div className="text-sm text-muted-foreground mt-1">Best value</div>
                     </div>
-                    <div className="flex items-center space-x-2 mb-3">
-                      <RadioGroupItem value="bi-weekly" id="bi-weekly" />
-                      <Label htmlFor="bi-weekly" className="cursor-pointer">
-                        Bi-weekly (5% discount)
-                      </Label>
+                  </button>
+
+                  {/* Bi-weekly */}
+                  <button
+                    type="button"
+                    onClick={() => setBookingData({ ...bookingData, frequency: "bi-weekly" })}
+                    className={`relative p-4 rounded-lg border-2 transition-all duration-200 hover:shadow-md ${
+                      bookingData.frequency === "bi-weekly"
+                        ? "border-purple-primary bg-purple-primary/5"
+                        : "border-border hover:border-purple-primary/50"
+                    }`}
+                    style={
+                      bookingData.frequency === "bi-weekly"
+                        ? { borderColor: "var(--purple-primary)" }
+                        : undefined
+                    }
+                  >
+                    <Badge className="absolute -top-2 left-1/2 -translate-x-1/2 bg-green-600 text-white text-xs">
+                      Save 5%
+                    </Badge>
+                    <div className="text-center mt-2">
+                      <div className="font-semibold">Bi-weekly</div>
+                      <div className="text-sm text-muted-foreground mt-1">Every 2 weeks</div>
                     </div>
-                    <div className="flex items-center space-x-2">
-                      <RadioGroupItem value="monthly" id="monthly" />
-                      <Label htmlFor="monthly" className="cursor-pointer">
-                        Monthly
-                      </Label>
+                  </button>
+
+                  {/* Monthly */}
+                  <button
+                    type="button"
+                    onClick={() => setBookingData({ ...bookingData, frequency: "monthly" })}
+                    className={`relative p-4 rounded-lg border-2 transition-all duration-200 hover:shadow-md ${
+                      bookingData.frequency === "monthly"
+                        ? "border-purple-primary bg-purple-primary/5"
+                        : "border-border hover:border-purple-primary/50"
+                    }`}
+                    style={
+                      bookingData.frequency === "monthly"
+                        ? { borderColor: "var(--purple-primary)" }
+                        : undefined
+                    }
+                  >
+                    <div className="text-center">
+                      <div className="font-semibold">Monthly</div>
+                      <div className="text-sm text-muted-foreground mt-1">Once a month</div>
                     </div>
-                  </RadioGroup>
-                </CardContent>
-              </Card>
+                  </button>
+
+                </div>
+              </div>
 
               {/* Section 3: First Clean Date */}
               <Card>
