@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { SocialProof } from "@/components/social-proof";
-import { Testimonial } from "@/components/testimonial";
 
 export function HeroSection2() {
   // Sample avatar URLs - replace with actual customer avatars
@@ -39,8 +39,16 @@ export function HeroSection2() {
               </p>
             </div>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-wrap gap-4">
+            {/* Postal Code Input and CTA */}
+            <div className="flex flex-wrap gap-4 items-center">
+              <Input
+                type="text"
+                placeholder="Enter your postal code"
+                className="flex-1 min-w-[200px] text-base px-6 py-6 rounded-full border-2"
+                style={{
+                  borderColor: "var(--teal-dark)",
+                }}
+              />
               <Button
                 size="lg"
                 className="text-base px-8 py-6 rounded-full font-semibold shadow-lg hover:shadow-xl transition-shadow"
@@ -49,30 +57,8 @@ export function HeroSection2() {
                   color: "white",
                 }}
               >
-                Subscribe Now
+                Book Now
               </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="text-base px-8 py-6 rounded-full font-semibold border-2"
-                style={{
-                  borderColor: "var(--teal-dark)",
-                  color: "var(--teal-dark)",
-                }}
-              >
-                Get a Quote
-              </Button>
-            </div>
-
-            {/* Testimonial */}
-            <div className="mt-2">
-              <Testimonial
-                quote="CleanPro has been an amazing addition to my business toolkit. Managing everything from my phone allows me to stay organized and in control, even when I'm on the move. Their support team is always responsive and incredibly helpful."
-                author="Sarah Wilson"
-                role="3 years with CleanPro"
-                avatar="https://i.pravatar.cc/150?img=5"
-                highlighted="Highly recommended!"
-              />
             </div>
           </div>
 
