@@ -4,7 +4,7 @@ import { Tagline } from "@/components/pro-blocks/landing-page/tagline";
 
 export function StatsSection4() {
   return (
-    <section className="bg-gradient-to-b from-white via-teal-light/8 to-white section-padding-y border-b">
+    <section className="bg-gradient-to-b from-white via-teal-light/8 to-white py-8">
       <div className="container-padding-x container mx-auto">
         <div className="flex flex-col gap-10 md:gap-12">
           <div className="section-title-gap-lg mx-auto flex max-w-xl flex-col items-center text-center">

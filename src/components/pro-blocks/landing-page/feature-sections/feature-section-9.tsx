@@ -5,7 +5,7 @@ import { Tagline } from "@/components/pro-blocks/landing-page/tagline";
 export function FeatureSection9() {
   return (
     <section
-      className="relative section-padding-y border-b overflow-hidden"
+      className="relative py-8 overflow-hidden"
       style={{ background: 'radial-gradient(ellipse at center, rgba(92, 142, 133, 0.08), white 70%)' }}
       id="how-it-works"
     >

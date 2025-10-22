@@ -16,7 +16,7 @@ export default function TestimonialsSection1({
 }: TestimonialsSection1Props) {
   return (
     <section
-      className="container-padding-x section-padding-y flex flex-col items-center border-b bg-gradient-to-b from-teal-light/5 to-white"
+      className="container-padding-x py-8 flex flex-col items-center bg-gradient-to-b from-teal-light/5 to-white"
       aria-labelledby="testimonial-title"
     >
       {/* Content Container */}

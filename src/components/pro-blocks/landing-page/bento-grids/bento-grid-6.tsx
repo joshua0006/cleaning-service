@@ -4,7 +4,7 @@ import { Tagline } from "@/components/pro-blocks/landing-page/tagline";
 
 export function BentoGrid6() {
   return (
-    <section className="bg-white section-padding-y border-b" id="features">
+    <section className="bg-gradient-to-b from-teal-light/5 to-white py-8" id="features">
       <div className="container-padding-x container mx-auto flex flex-col gap-10 md:gap-12">
         {/* Section Title */}
         <div className="section-title-gap-lg mx-auto flex max-w-xl flex-col items-center text-center">

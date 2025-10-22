@@ -13,7 +13,7 @@ export function HeroSection2() {
 
   return (
     <section
-      className="relative overflow-hidden bg-gradient-to-b from-white via-teal-light/8 to-white py-12 lg:py-16"
+      className="relative overflow-hidden bg-gradient-to-b from-white via-teal-light/8 to-white py-8"
       aria-labelledby="hero-heading"
     >
       {/* Content Container */}
