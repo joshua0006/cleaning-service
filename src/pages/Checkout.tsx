@@ -8,6 +8,8 @@ import { Footer1 } from "@/components/pro-blocks/landing-page/footers/footer-1"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+import { Badge } from "@/components/ui/badge"
+import { Check } from "lucide-react"
 import { Calendar } from "@/components/ui/calendar"
 import {
   Select,
@@ -125,65 +127,230 @@ export default function Checkout() {
             {/* Left Column - Form Sections */}
             <div className="lg:col-span-2 space-y-6">
 
-              {/* Section 1: Cleaning Plan */}
-              <Card>
-                <CardHeader>
-                  <CardTitle>Choose your cleaning plan</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <RadioGroup
-                    value={bookingData.cleaningPlan}
-                    onValueChange={(value) =>
-                      setBookingData({ ...bookingData, cleaningPlan: value })
+              {/* Section 1: Cleaning Plan - Pricing Tiers */}
+              <div>
+                <h2 className="text-2xl font-bold mb-6">Choose your cleaning plan</h2>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {/* Regular Cleaning - Basic Tier */}
+                  <Card
+                    className={`relative cursor-pointer transition-all duration-300 hover:shadow-lg h-full flex flex-col ${
+                      bookingData.cleaningPlan === "regular-cleaning"
+                        ? "ring-2 ring-purple-primary shadow-lg"
+                        : "hover:scale-105"
+                    }`}
+                    onClick={() =>
+                      setBookingData({ ...bookingData, cleaningPlan: "regular-cleaning" })
                     }
                   >
-                    <div className="flex items-center space-x-2 mb-3">
-                      <RadioGroupItem value="deep-cleaning" id="deep-cleaning" />
-                      <Label htmlFor="deep-cleaning" className="cursor-pointer flex-1">
-                        <div>
-                          <div className="font-semibold">Deep Cleaning</div>
-                          <div className="text-sm text-muted-foreground">
-                            Thorough cleaning of all areas - $150 base
-                          </div>
-                        </div>
-                      </Label>
-                    </div>
-                    <div className="flex items-center space-x-2 mb-3">
-                      <RadioGroupItem value="regular-cleaning" id="regular-cleaning" />
-                      <Label htmlFor="regular-cleaning" className="cursor-pointer flex-1">
-                        <div>
-                          <div className="font-semibold">Regular Cleaning</div>
-                          <div className="text-sm text-muted-foreground">
-                            Standard maintenance cleaning - $80 base
-                          </div>
-                        </div>
-                      </Label>
-                    </div>
-                    <div className="flex items-center space-x-2 mb-3">
-                      <RadioGroupItem value="move-in-out" id="move-in-out" />
-                      <Label htmlFor="move-in-out" className="cursor-pointer flex-1">
-                        <div>
-                          <div className="font-semibold">Move In/Out Cleaning</div>
-                          <div className="text-sm text-muted-foreground">
-                            Complete cleaning for moving - $200 base
-                          </div>
-                        </div>
-                      </Label>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <RadioGroupItem value="office-cleaning" id="office-cleaning" />
-                      <Label htmlFor="office-cleaning" className="cursor-pointer flex-1">
-                        <div>
-                          <div className="font-semibold">Office Cleaning</div>
-                          <div className="text-sm text-muted-foreground">
-                            Professional office cleaning - $120 base
-                          </div>
-                        </div>
-                      </Label>
-                    </div>
-                  </RadioGroup>
-                </CardContent>
-              </Card>
+                    <CardHeader className="text-center pb-4">
+                      <div className="mb-2">
+                        <Badge variant="outline" className="text-xs">
+                          Basic
+                        </Badge>
+                      </div>
+                      <CardTitle className="text-2xl mb-2">Regular Cleaning</CardTitle>
+                      <div className="mt-4">
+                        <span className="text-4xl font-bold">$80</span>
+                        <span className="text-muted-foreground text-sm ml-1">base</span>
+                      </div>
+                    </CardHeader>
+                    <CardContent className="flex-1 flex flex-col">
+                      <ul className="space-y-3 flex-1">
+                        <li className="flex items-start gap-2">
+                          <Check className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm">Standard maintenance cleaning</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <Check className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm">Dusting and vacuuming</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <Check className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm">Kitchen and bathroom cleaning</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <Check className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm">Floor mopping</span>
+                        </li>
+                      </ul>
+                      <div className="mt-6">
+                        <Button
+                          variant={
+                            bookingData.cleaningPlan === "regular-cleaning"
+                              ? "default"
+                              : "outline"
+                          }
+                          className="w-full"
+                          style={
+                            bookingData.cleaningPlan === "regular-cleaning"
+                              ? {
+                                  backgroundColor: "var(--purple-primary)",
+                                  color: "white",
+                                }
+                              : undefined
+                          }
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            setBookingData({ ...bookingData, cleaningPlan: "regular-cleaning" })
+                          }}
+                        >
+                          {bookingData.cleaningPlan === "regular-cleaning" ? "✓ Selected" : "Select Plan"}
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  {/* Deep Cleaning - Featured/Recommended Tier */}
+                  <Card
+                    className={`relative cursor-pointer transition-all duration-300 hover:shadow-lg h-full flex flex-col ${
+                      bookingData.cleaningPlan === "deep-cleaning"
+                        ? "ring-2 ring-purple-primary shadow-lg"
+                        : "hover:scale-105"
+                    }`}
+                    onClick={() =>
+                      setBookingData({ ...bookingData, cleaningPlan: "deep-cleaning" })
+                    }
+                  >
+                    <CardHeader className="text-center pb-4">
+                      <div className="mb-2">
+                        <Badge
+                          className="text-xs"
+                          style={{
+                            backgroundColor: "var(--purple-primary)",
+                            color: "white",
+                          }}
+                        >
+                          ⭐ Recommended
+                        </Badge>
+                      </div>
+                      <CardTitle className="text-2xl mb-2">Deep Cleaning</CardTitle>
+                      <div className="mt-4">
+                        <span className="text-4xl font-bold">$150</span>
+                        <span className="text-muted-foreground text-sm ml-1">base</span>
+                      </div>
+                    </CardHeader>
+                    <CardContent className="flex-1 flex flex-col">
+                      <ul className="space-y-3 flex-1">
+                        <li className="flex items-start gap-2">
+                          <Check className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm font-medium">Everything in Regular</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <Check className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm">Thorough cleaning of all areas</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <Check className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm">Behind appliances cleaning</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <Check className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm">Detailed scrubbing and sanitizing</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <Check className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm">Window cleaning (interior)</span>
+                        </li>
+                      </ul>
+                      <div className="mt-6">
+                        <Button
+                          variant={
+                            bookingData.cleaningPlan === "deep-cleaning"
+                              ? "default"
+                              : "outline"
+                          }
+                          className="w-full"
+                          style={
+                            bookingData.cleaningPlan === "deep-cleaning"
+                              ? {
+                                  backgroundColor: "var(--purple-primary)",
+                                  color: "white",
+                                }
+                              : undefined
+                          }
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            setBookingData({ ...bookingData, cleaningPlan: "deep-cleaning" })
+                          }}
+                        >
+                          {bookingData.cleaningPlan === "deep-cleaning" ? "✓ Selected" : "Select Plan"}
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  {/* Move In/Out - Premium Tier */}
+                  <Card
+                    className={`relative cursor-pointer transition-all duration-300 hover:shadow-lg h-full flex flex-col ${
+                      bookingData.cleaningPlan === "move-in-out"
+                        ? "ring-2 ring-purple-primary shadow-lg"
+                        : "hover:scale-105"
+                    }`}
+                    onClick={() =>
+                      setBookingData({ ...bookingData, cleaningPlan: "move-in-out" })
+                    }
+                  >
+                    <CardHeader className="text-center pb-4">
+                      <div className="mb-2">
+                        <Badge variant="outline" className="text-xs">
+                          Premium
+                        </Badge>
+                      </div>
+                      <CardTitle className="text-2xl mb-2">Move In/Out</CardTitle>
+                      <div className="mt-4">
+                        <span className="text-4xl font-bold">$200</span>
+                        <span className="text-muted-foreground text-sm ml-1">base</span>
+                      </div>
+                    </CardHeader>
+                    <CardContent className="flex-1 flex flex-col">
+                      <ul className="space-y-3 flex-1">
+                        <li className="flex items-start gap-2">
+                          <Check className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm font-medium">Everything in Deep Cleaning</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <Check className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm">Complete empty space cleaning</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <Check className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm">Inside cabinets and drawers</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <Check className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm">Wall and baseboard cleaning</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <Check className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm">Move-in/out ready condition</span>
+                        </li>
+                      </ul>
+                      <div className="mt-6">
+                        <Button
+                          variant={
+                            bookingData.cleaningPlan === "move-in-out" ? "default" : "outline"
+                          }
+                          className="w-full"
+                          style={
+                            bookingData.cleaningPlan === "move-in-out"
+                              ? {
+                                  backgroundColor: "var(--purple-primary)",
+                                  color: "white",
+                                }
+                              : undefined
+                          }
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            setBookingData({ ...bookingData, cleaningPlan: "move-in-out" })
+                          }}
+                        >
+                          {bookingData.cleaningPlan === "move-in-out" ? "✓ Selected" : "Select Plan"}
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+              </div>
 
               {/* Section 2: Frequency */}
               <Card>
