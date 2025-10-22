@@ -1,6 +1,5 @@
 
 import { Card, CardContent } from "@/components/ui/card";
-import { Tagline } from "@/components/pro-blocks/landing-page/tagline";
 
 export function BentoGrid6() {
   return (
@@ -8,10 +7,8 @@ export function BentoGrid6() {
       <div className="container-padding-x container mx-auto flex flex-col gap-10 md:gap-12">
         {/* Section Title */}
         <div className="section-title-gap-lg mx-auto flex max-w-xl flex-col items-center text-center">
-          {/* Tagline */}
-          <Tagline>Why Choose Us</Tagline>
           {/* Main Heading */}
-          <h2 className="heading-lg">
+          <h2 className="heading-lg" style={{ color: 'var(--teal-dark)' }}>
             Professional cleaning you can trust
           </h2>
         </div>

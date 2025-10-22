@@ -1,6 +1,5 @@
 
 import { Card, CardContent } from "@/components/ui/card";
-import { Tagline } from "@/components/pro-blocks/landing-page/tagline";
 
 export function StatsSection4() {
   return (
@@ -8,7 +7,6 @@ export function StatsSection4() {
       <div className="container-padding-x container mx-auto">
         <div className="flex flex-col gap-10 md:gap-12">
           <div className="section-title-gap-lg mx-auto flex max-w-xl flex-col items-center text-center">
-            <Tagline>Our Impact</Tagline>
             <h2 className="heading-lg" style={{ color: 'var(--teal-dark)' }}>Trusted by thousands</h2>
             <p style={{ color: 'var(--teal-dark)', opacity: 0.8 }}>
               Delivering exceptional cleaning services and building lasting

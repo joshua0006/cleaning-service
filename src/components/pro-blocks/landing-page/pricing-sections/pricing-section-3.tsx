@@ -10,7 +10,6 @@ import {
   TooltipTrigger,
   TooltipProvider,
 } from "@/components/ui/tooltip";
-import { Tagline } from "@/components/pro-blocks/landing-page/tagline";
 
 const pricingData = {
   plans: [
@@ -61,12 +60,11 @@ export function PricingSection3() {
         <div className="flex flex-col items-center gap-10 md:gap-12">
           {/* Section Header */}
           <div className="section-title-gap-lg flex max-w-xl flex-col items-center text-center">
-            {/* Category Tag */}
-            <Tagline>Pricing</Tagline>
             {/* Main Title */}
             <h2
               id="pricing-section-title-3"
-              className="heading-lg text-foreground"
+              className="heading-lg"
+              style={{ color: 'var(--teal-dark)' }}
             >
               Pricing plans crafted to meet your needs
             </h2>
