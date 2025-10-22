@@ -1,37 +1,80 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useRef, useLayoutEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import { Calendar } from "@/components/ui/calendar"
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
+import { Input } from "@/components/ui/input"
 import {
   Popover,
   PopoverContent,
-  PopoverTrigger,
+  PopoverAnchor,
 } from "@/components/ui/popover"
-import { Calendar as CalendarIcon } from "lucide-react"
-import { format } from "date-fns"
 
 export function ServiceBookingForm() {
-  const [date, setDate] = useState<Date>()
-  const [serviceType, setServiceType] = useState<string>("")
+  const [postalCode, setPostalCode] = useState<string>("")
+  const [error, setError] = useState<string>("")
+  const inputRef = useRef<HTMLInputElement>(null)
 
-  const handleGetStarted = () => {
-    if (serviceType && date) {
-      console.log("Service:", serviceType, "Date:", date)
+  // Focus lock - prevent focus loss when error state changes
+  useLayoutEffect(() => {
+    if (postalCode.length > 0 && inputRef.current) {
+      inputRef.current.focus()
+    }
+  }, [error, postalCode.length])
+
+  // Validate Singapore postal code
+  const validatePostalCode = (code: string): boolean => {
+    // Must be exactly 6 digits
+    if (!/^\d{6}$/.test(code)) {
+      if (code.length > 0 && code.length < 6) {
+        setError("Postal code must be exactly 6 digits")
+      } else if (code.length === 6 && !/^\d+$/.test(code)) {
+        setError("Postal code must contain only numbers")
+      } else {
+        setError("")
+      }
+      return false
+    }
+
+    // Check if first 2 digits are within valid Singapore range (01-82 or 91)
+    const sector = parseInt(code.substring(0, 2))
+    if (!((sector >= 1 && sector <= 82) || sector === 91)) {
+      setError("Invalid Singapore postal code")
+      return false
+    }
+
+    setError("")
+    return true
+  }
+
+  const handlePostalCodeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value.replace(/\D/g, "").slice(0, 6) // Only allow digits, max 6
+    setPostalCode(value)
+    if (value.length === 6) {
+      validatePostalCode(value)
+    } else if (value.length > 0) {
+      setError("Postal code must be exactly 6 digits")
+    } else {
+      setError("")
+    }
+
+    // Immediate focus restoration after state update
+    requestAnimationFrame(() => {
+      if (inputRef.current) {
+        inputRef.current.focus()
+      }
+    })
+  }
+
+  const handleBookNow = () => {
+    if (postalCode && validatePostalCode(postalCode)) {
+      console.log("Postal Code:", postalCode)
       // Handle booking logic here
     }
   }
 
   return (
-    <div className="w-full max-w-4xl mx-auto">
+    <div className="w-full max-w-3xl mx-auto">
       {/* Hero Image */}
       <img
         src="/cleaning-tools.png"
@@ -42,51 +85,37 @@ export function ServiceBookingForm() {
       <Card className="bg-white shadow-lg rounded-t-none" role="form" aria-label="Service booking form">
         <div className="p-6">
           <div className="flex flex-col md:flex-row gap-4 items-end">
-            {/* Service Type Selection */}
+            {/* Postal Code Input */}
             <div className="flex-1 w-full">
-              <label htmlFor="service-type" className="text-sm font-medium text-foreground mb-2 block">
-                Get Our Service
+              <label htmlFor="postal-code" className="text-sm font-medium text-foreground mb-2 block">
+                Enter Your Postal Code
               </label>
-              <Select value={serviceType} onValueChange={setServiceType}>
-                <SelectTrigger id="service-type" className="w-full !h-12 bg-background focus:ring-2 focus:ring-[var(--purple-primary)]" aria-label="Select service type">
-                  <SelectValue placeholder="Service Type" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="deep-cleaning">Deep Cleaning</SelectItem>
-                  <SelectItem value="regular-cleaning">Regular Cleaning</SelectItem>
-                  <SelectItem value="move-in-out">Move In/Out Cleaning</SelectItem>
-                  <SelectItem value="office-cleaning">Office Cleaning</SelectItem>
-                  <SelectItem value="window-cleaning">Window Cleaning</SelectItem>
-                  <SelectItem value="carpet-cleaning">Carpet Cleaning</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-
-            {/* Date Selection */}
-            <div className="flex-1 w-full">
-              <label htmlFor="date-picker" className="text-sm font-medium text-foreground mb-2 block">
-                Select Date
-              </label>
-              <Popover>
-                <PopoverTrigger asChild>
-                  <Button
-                    id="date-picker"
-                    variant="outline"
-                    className="w-full !h-12 justify-start text-left font-normal bg-background focus:ring-2 focus:ring-[var(--purple-primary)]"
-                    aria-label={date ? `Selected date: ${format(date, "PPP")}` : "Pick a date"}
-                  >
-                    <CalendarIcon className="mr-2 h-4 w-4" aria-hidden="true" />
-                    {date ? format(date, "PPP") : <span>Pick a date</span>}
-                  </Button>
-                </PopoverTrigger>
-                <PopoverContent className="w-auto p-0" align="start">
-                  <Calendar
-                    mode="single"
-                    selected={date}
-                    onSelect={setDate}
-                    initialFocus
-                    disabled={(date) => date < new Date()}
+              <Popover open={!!error} modal={false} onOpenChange={() => {}}>
+                <PopoverAnchor asChild>
+                  <Input
+                    ref={inputRef}
+                    id="postal-code"
+                    type="text"
+                    inputMode="numeric"
+                    pattern="\d*"
+                    maxLength={6}
+                    value={postalCode}
+                    onChange={handlePostalCodeChange}
+                    placeholder="6-digit postal code"
+                    className="w-full !h-12 bg-background focus:ring-2 focus:ring-[var(--purple-primary)]"
+                    aria-label="Enter Singapore postal code"
+                    aria-invalid={!!error}
+                    aria-describedby={error ? "postal-code-error" : undefined}
                   />
+                </PopoverAnchor>
+                <PopoverContent
+                  side="bottom"
+                  align="start"
+                  className="w-auto max-w-xs bg-white text-destructive border-destructive p-3 shadow-lg"
+                  role="alert"
+                  id="postal-code-error"
+                >
+                  <p className="text-sm font-medium">{error}</p>
                 </PopoverContent>
               </Popover>
             </div>
@@ -94,14 +123,14 @@ export function ServiceBookingForm() {
             {/* CTA Button */}
             <div className="w-full md:w-auto">
               <Button
-                onClick={handleGetStarted}
+                onClick={handleBookNow}
                 className="w-full md:w-auto h-12 px-8 text-base font-medium focus:ring-4 focus:ring-orange-cta/50 focus:outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                 style={{ backgroundColor: 'var(--orange-cta)', color: 'white' }}
-                disabled={!serviceType || !date}
-                aria-label="Submit booking request"
-                aria-disabled={!serviceType || !date}
+                disabled={!postalCode || !!error || postalCode.length !== 6}
+                aria-label="Book now with entered postal code"
+                aria-disabled={!postalCode || !!error || postalCode.length !== 6}
               >
-                Get Started
+                Book Now
               </Button>
             </div>
           </div>
