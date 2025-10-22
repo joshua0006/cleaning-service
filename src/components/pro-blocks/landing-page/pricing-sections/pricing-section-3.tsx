@@ -53,7 +53,7 @@ const pricingData = {
 export function PricingSection3() {
   return (
     <section
-      className="bg-secondary section-padding-y border-b"
+      className="bg-white section-padding-y border-b"
       aria-labelledby="pricing-section-title-3"
       id="pricing"
     >

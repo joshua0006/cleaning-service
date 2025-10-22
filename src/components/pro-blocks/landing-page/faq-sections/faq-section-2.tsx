@@ -10,7 +10,7 @@ import { Tagline } from "@/components/pro-blocks/landing-page/tagline";
 export function FaqSection2() {
   return (
     <section
-      className="bg-background section-padding-y border-b"
+      className="bg-gradient-to-b from-teal-light/5 to-white section-padding-y border-b"
       aria-labelledby="faq-heading"
       id="faq"
     >

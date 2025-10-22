@@ -5,7 +5,7 @@ import { Separator } from "@/components/ui/separator";
 export function Footer1() {
   return (
     <footer
-      className="bg-background section-padding-y"
+      className="bg-gradient-to-b from-white to-teal-light/10 section-padding-y"
       role="contentinfo"
       aria-label="Site footer"
     >

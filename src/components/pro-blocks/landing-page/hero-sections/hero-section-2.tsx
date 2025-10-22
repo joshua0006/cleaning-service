@@ -1,79 +1,109 @@
-import { ServiceBookingForm } from "@/components/service-booking-form";
+import { Button } from "@/components/ui/button";
+import { SocialProof } from "@/components/social-proof";
+import { Testimonial } from "@/components/testimonial";
 
 export function HeroSection2() {
+  // Sample avatar URLs - replace with actual customer avatars
+  const customerAvatars = [
+    "https://i.pravatar.cc/150?img=1",
+    "https://i.pravatar.cc/150?img=2",
+    "https://i.pravatar.cc/150?img=3",
+    "https://i.pravatar.cc/150?img=4",
+  ];
+
   return (
     <section
-      className="relative overflow-hidden bg-white section-padding-y"
+      className="relative overflow-hidden bg-gradient-to-b from-white via-teal-light/8 to-white py-12 lg:py-16"
       aria-labelledby="hero-heading"
     >
-      {/* V-Shaped Violet Background - Accessibility compliant */}
-      <div
-        className="absolute inset-0 overflow-hidden pointer-events-none"
-        aria-hidden="true"
-        role="presentation"
-      >
-        {/* Outer (Wider) V-shape - Layer 1 (Background) */}
-        {/* Left triangle of outer V-shape */}
-        <div
-          className="absolute left-0 top-0 w-full h-full"
-          style={{
-            background: 'var(--teal-light)',
-            clipPath: 'polygon(0% 0%, 0% 65%, 50% 75%, 0% 0%)',
-            opacity: 0.9
-          }}
-        />
-        {/* Right triangle of outer V-shape */}
-        <div
-          className="absolute right-0 top-0 w-full h-full"
-          style={{
-            background: 'var(--teal-light)',
-            clipPath: 'polygon(100% 0%, 50% 75%, 100% 65%, 100% 0%)',
-            opacity: 0.9
-          }}
-        />
-
-        {/* Inner V-shape - Layer 2 (Foreground) */}
-        {/* Left triangle of inner V-shape */}
-        <div
-          className="absolute left-0 top-0 w-full h-full"
-          style={{
-            background: 'var(--teal-primary)',
-            clipPath: 'polygon(0% 40%, 0% 70%, 50% 80%, 50% 70%)',
-            opacity: 0.9
-          }}
-        />
-        {/* Right triangle of inner V-shape */}
-        <div
-          className="absolute right-0 top-0 w-full h-full"
-          style={{
-            background: 'var(--teal-primary)',
-            clipPath: 'polygon(100% 30%, 50% 70%, 50% 80%, 100% 70%)',
-            opacity: 0.9
-          }}
-        />
-      </div>
-
       {/* Content Container */}
       <div className="container-padding-x container mx-auto relative z-10">
-        {/* Centered Content */}
-        <div className="flex flex-col items-center text-center gap-6 max-w-4xl mx-auto">
-          {/* Main Heading */}
-          <div className="section-title-gap-xl flex flex-col items-center">
-            <h1 id="hero-heading" className="heading-xl text-foreground max-w-3xl">
-              Guaranteed House Cleaning Service
-            </h1>
+        {/* Two-Column Grid Layout */}
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Left Column - Content */}
+          <div className="flex flex-col gap-8 order-2 lg:order-1">
+            {/* Main Heading */}
+            <div className="flex flex-col gap-4">
+              <h1
+                id="hero-heading"
+                className="heading-xl text-foreground leading-tight"
+                style={{ color: "var(--teal-dark)" }}
+              >
+                Seamless Cleaning Services for Outstanding, Lasting Results.
+              </h1>
 
-            {/* Description with trust signals */}
-            <p className="text-foreground/80 text-base lg:text-lg max-w-2xl">
-              More than five years of providing home cleaning services.
-              <br />
-              98% of our customers are satisfied with our services.
-            </p>
+              {/* Description */}
+              <p className="text-foreground/70 text-base lg:text-lg leading-relaxed max-w-lg">
+                Customized solutions for businesses and homes—powered by
+                eco-friendly products and long-term care.
+              </p>
+            </div>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-wrap gap-4">
+              <Button
+                size="lg"
+                className="text-base px-8 py-6 rounded-full font-semibold shadow-lg hover:shadow-xl transition-shadow"
+                style={{
+                  backgroundColor: "var(--teal-dark)",
+                  color: "white",
+                }}
+              >
+                Subscribe Now
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="text-base px-8 py-6 rounded-full font-semibold border-2"
+                style={{
+                  borderColor: "var(--teal-dark)",
+                  color: "var(--teal-dark)",
+                }}
+              >
+                Get a Quote
+              </Button>
+            </div>
+
+            {/* Testimonial */}
+            <div className="mt-2">
+              <Testimonial
+                quote="CleanPro has been an amazing addition to my business toolkit. Managing everything from my phone allows me to stay organized and in control, even when I'm on the move. Their support team is always responsive and incredibly helpful."
+                author="Sarah Wilson"
+                role="3 years with CleanPro"
+                avatar="https://i.pravatar.cc/150?img=5"
+                highlighted="Highly recommended!"
+              />
+            </div>
           </div>
 
-          {/* Service Booking Form - Positioned to cover V-shape endpoint */}
-          <div className="w-full ">
-            <ServiceBookingForm />
+          {/* Right Column - Hero Image */}
+          <div className="flex items-center justify-end order-1 lg:order-2">
+            <div className="relative w-full max-w-lg">
+              {/* Social Proof Overlay - Top Left */}
+              <div className="absolute top-[20%] -left-8 md:-left-32 z-20 scale-90 md:scale-100 origin-top-left">
+                <SocialProof
+                  count="10,000+"
+                  label="Happy Customers"
+                  avatars={customerAvatars}
+                />
+              </div>
+
+              {/* Image Container */}
+              <div className="relative">
+                <img
+                  src="/smiling-asian-woman-having-spring-clean-removebg-preview.png"
+                  alt="Smiling professional cleaner ready for spring cleaning service"
+                  className="w-full h-auto object-contain drop-shadow-2xl"
+                />
+              </div>
+
+              {/* Decorative Background Element */}
+              <div
+                className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] rounded-full opacity-10 blur-3xl"
+                style={{ backgroundColor: "var(--teal-primary)" }}
+                aria-hidden="true"
+              />
+            </div>
           </div>
         </div>
       </div>
