@@ -1,6 +1,5 @@
 import { LpNavbar1 } from "@/components/pro-blocks/landing-page/lp-navbars/lp-navbar-1";
 import { HeroSection2 } from "@/components/pro-blocks/landing-page/hero-sections/hero-section-2";
-import { FeatureRow3 } from "@/components/pro-blocks/landing-page/feature-sections/feature-row-3";
 import TestimonialsSection1 from "@/components/pro-blocks/landing-page/testimonials-sections/testimonials-section-1";
 import { BentoGrid6 } from "@/components/pro-blocks/landing-page/bento-grids/bento-grid-6";
 import { FeatureSection9 } from "@/components/pro-blocks/landing-page/feature-sections/feature-section-9";
@@ -14,10 +13,9 @@ export default function Home() {
     <main>
       <LpNavbar1 />
       <HeroSection2 />
-      <FeatureRow3 />
+      <StatsSection4 />
       <BentoGrid6 />
       <FeatureSection9 />
-      <StatsSection4 />
       <TestimonialsSection1
         quote="We've been using Athena for six months and couldn't be happier. Our home is spotless every time, and their attention to detail is outstanding!"
         authorName="Monica Kurt"
