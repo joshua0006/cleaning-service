@@ -13,15 +13,15 @@ export function HeroSection2() {
 
   return (
     <section
-      className="relative overflow-hidden bg-gradient-to-b from-white via-teal-light/8 to-white py-8"
+      className="relative overflow-hidden bg-gradient-to-b from-white via-teal-light/8 to-white py-8 md:py-12 lg:py-16"
       aria-labelledby="hero-heading"
     >
       {/* Content Container */}
       <div className="container-padding-x container mx-auto relative z-10">
         {/* Two-Column Grid Layout */}
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid md:grid-cols-2 gap-6 md:gap-8 lg:gap-16 items-center">
           {/* Left Column - Content */}
-          <div className="flex flex-col gap-8 order-2 lg:order-1">
+          <div className="flex flex-col gap-6 md:gap-8 order-2 md:order-1">
             {/* Main Heading */}
             <div className="flex flex-col gap-4">
               <h1
@@ -40,18 +40,18 @@ export function HeroSection2() {
             </div>
 
             {/* Postal Code Input and CTA */}
-            <div className="flex flex-wrap gap-4 items-center">
+            <div className="flex flex-col md:flex-row gap-3 md:gap-4 items-stretch md:items-center">
               <Input
                 type="text"
                 placeholder="Enter your postal code"
-                className="flex-1 min-w-[200px] text-base px-6 py-6 rounded-full border-2"
+                className="w-full md:flex-1 text-base px-6 py-6 rounded-full border-2"
                 style={{
                   borderColor: "var(--teal-dark)",
                 }}
               />
               <Button
                 size="lg"
-                className="text-base px-8 py-6 rounded-full font-semibold shadow-lg hover:shadow-xl transition-shadow"
+                className="w-full md:w-auto text-base px-8 py-6 rounded-full font-semibold shadow-lg hover:shadow-xl transition-shadow"
                 style={{
                   backgroundColor: "var(--teal-dark)",
                   color: "white",
@@ -63,10 +63,10 @@ export function HeroSection2() {
           </div>
 
           {/* Right Column - Hero Image */}
-          <div className="flex items-center justify-end order-1 lg:order-2">
-            <div className="relative w-full max-w-lg">
+          <div className="flex items-center justify-center md:justify-end order-1 md:order-2">
+            <div className="relative w-full max-w-md md:max-w-sm lg:max-w-lg">
               {/* Social Proof Overlay - Top Left */}
-              <div className="absolute top-[20%] -left-8 md:-left-32 z-20 scale-90 md:scale-100 origin-top-left">
+              <div className="absolute top-[20%] -left-4 md:-left-16 lg:-left-32 z-20 scale-75 md:scale-90 lg:scale-100 origin-top-left">
                 <SocialProof
                   count="10,000+"
                   label="Happy Customers"
@@ -79,7 +79,7 @@ export function HeroSection2() {
                 <img
                   src="/smiling-asian-woman-having-spring-clean-removebg-preview.png"
                   alt="Smiling professional cleaner ready for spring cleaning service"
-                  className="w-[85%] h-auto object-contain drop-shadow-2xl"
+                  className="w-full md:w-[90%] lg:w-[85%] h-auto object-contain drop-shadow-2xl"
                   style={{
                     maskImage: 'linear-gradient(to bottom, black 70%, transparent 100%)',
                     WebkitMaskImage: 'linear-gradient(to bottom, black 70%, transparent 100%)',
