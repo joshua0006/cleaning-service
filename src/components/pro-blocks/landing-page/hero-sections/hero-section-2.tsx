@@ -94,6 +94,10 @@ export function HeroSection2() {
                   src="/smiling-asian-woman-having-spring-clean-removebg-preview.png"
                   alt="Smiling professional cleaner ready for spring cleaning service"
                   className="w-full h-auto object-contain drop-shadow-2xl"
+                  style={{
+                    maskImage: 'linear-gradient(to bottom, black 70%, transparent 100%)',
+                    WebkitMaskImage: 'linear-gradient(to bottom, black 70%, transparent 100%)',
+                  }}
                 />
               </div>
 
