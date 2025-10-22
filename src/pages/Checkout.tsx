@@ -468,7 +468,13 @@ export default function Checkout() {
                         )}
                       </Button>
                     </PopoverTrigger>
-                    <PopoverContent className="w-auto p-0">
+                    <PopoverContent
+                      className="w-auto p-0"
+                      style={{
+                        "--primary": "var(--purple-primary)",
+                        "--primary-foreground": "white"
+                      } as React.CSSProperties}
+                    >
                       <Calendar
                         mode="single"
                         selected={bookingData.firstCleanDate}
