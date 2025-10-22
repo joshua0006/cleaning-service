@@ -8,7 +8,7 @@ import { Footer1 } from "@/components/pro-blocks/landing-page/footers/footer-1"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
 import { Badge } from "@/components/ui/badge"
-import { Check } from "lucide-react"
+import { Check, Minus, Plus, Bed, Bath, Shirt, PawPrint } from "lucide-react"
 import { Calendar } from "@/components/ui/calendar"
 import {
   Select,
@@ -18,7 +18,6 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { Checkbox } from "@/components/ui/checkbox"
-import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import {
   Popover,
@@ -32,12 +31,13 @@ interface BookingData {
   cleaningPlan: string
   frequency: string
   firstCleanDate: Date | undefined
-  homeDetails: string
+  bedrooms: number
+  bathrooms: number
   duration: string
   startTime: string
   language: string
   needIroning: boolean
-  needDecluttering: boolean
+  hasPet: boolean
 }
 
 export default function Checkout() {
@@ -56,12 +56,13 @@ export default function Checkout() {
     cleaningPlan: "",
     frequency: "",
     firstCleanDate: undefined,
-    homeDetails: "",
+    bedrooms: 0,
+    bathrooms: 0,
     duration: "",
     startTime: "",
     language: "",
     needIroning: false,
-    needDecluttering: false,
+    hasPet: false,
   })
 
   // Calculate total price based on selections
@@ -88,7 +89,6 @@ export default function Checkout() {
 
     // Additional services
     if (bookingData.needIroning) basePrice += 30
-    if (bookingData.needDecluttering) basePrice += 50
 
     // Frequency discount
     if (bookingData.frequency === "weekly") basePrice *= 0.9
@@ -484,20 +484,161 @@ export default function Checkout() {
                 </CardContent>
               </Card>
 
-              {/* Section 4: Home Details (Optional) */}
+              {/* Section 4: Home Details */}
               <Card>
                 <CardHeader>
                   <CardTitle>Tell us about your home (optional)</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <Textarea
-                    placeholder="E.g., 3 bedrooms, 2 bathrooms, 1200 sq ft, pets in home, areas needing special attention..."
-                    value={bookingData.homeDetails}
-                    onChange={(e) =>
-                      setBookingData({ ...bookingData, homeDetails: e.target.value })
-                    }
-                    className="min-h-24"
-                  />
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {/* Bedrooms Card */}
+                    <Card>
+                      <CardContent className="pt-4 pb-4 px-3">
+                        <div className="flex flex-col items-center space-y-3">
+                          <div className="flex items-center gap-2">
+                            <Bed className="h-5 w-5" style={{ color: "var(--purple-primary)" }} />
+                            <Label className="text-base font-medium">Bedrooms</Label>
+                          </div>
+                          <div className="flex items-center gap-3">
+                            <Button
+                              type="button"
+                              variant="outline"
+                              size="icon"
+                              className="h-10 w-10"
+                              onClick={() =>
+                                setBookingData({
+                                  ...bookingData,
+                                  bedrooms: Math.max(0, bookingData.bedrooms - 1),
+                                })
+                              }
+                              disabled={bookingData.bedrooms === 0}
+                            >
+                              <Minus className="h-4 w-4" />
+                            </Button>
+                            <span className="text-2xl font-semibold w-12 text-center">
+                              {bookingData.bedrooms}
+                            </span>
+                            <Button
+                              type="button"
+                              variant="outline"
+                              size="icon"
+                              className="h-10 w-10"
+                              onClick={() =>
+                                setBookingData({
+                                  ...bookingData,
+                                  bedrooms: Math.min(10, bookingData.bedrooms + 1),
+                                })
+                              }
+                              disabled={bookingData.bedrooms === 10}
+                            >
+                              <Plus className="h-4 w-4" />
+                            </Button>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+
+                    {/* Bathrooms Card */}
+                    <Card>
+                      <CardContent className="pt-4 pb-4 px-3">
+                        <div className="flex flex-col items-center space-y-3">
+                          <div className="flex items-center gap-2">
+                            <Bath className="h-5 w-5" style={{ color: "var(--purple-primary)" }} />
+                            <Label className="text-base font-medium">Bathrooms</Label>
+                          </div>
+                          <div className="flex items-center gap-3">
+                            <Button
+                              type="button"
+                              variant="outline"
+                              size="icon"
+                              className="h-10 w-10"
+                              onClick={() =>
+                                setBookingData({
+                                  ...bookingData,
+                                  bathrooms: Math.max(0, bookingData.bathrooms - 1),
+                                })
+                              }
+                              disabled={bookingData.bathrooms === 0}
+                            >
+                              <Minus className="h-4 w-4" />
+                            </Button>
+                            <span className="text-2xl font-semibold w-12 text-center">
+                              {bookingData.bathrooms}
+                            </span>
+                            <Button
+                              type="button"
+                              variant="outline"
+                              size="icon"
+                              className="h-10 w-10"
+                              onClick={() =>
+                                setBookingData({
+                                  ...bookingData,
+                                  bathrooms: Math.min(10, bookingData.bathrooms + 1),
+                                })
+                              }
+                              disabled={bookingData.bathrooms === 10}
+                            >
+                              <Plus className="h-4 w-4" />
+                            </Button>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+
+                    {/* Ironing Service Card */}
+                    <Card>
+                      <CardContent className="pt-4 pb-4 px-3">
+                        <div className="flex flex-col items-center space-y-3">
+                          <div className="flex items-center gap-2">
+                            <Shirt className="h-5 w-5" style={{ color: "var(--purple-primary)" }} />
+                            <Label className="text-base font-medium">Ironing</Label>
+                          </div>
+                          <div className="flex items-center gap-3">
+                            <Checkbox
+                              id="ironing-checkbox"
+                              checked={bookingData.needIroning}
+                              onCheckedChange={(checked) =>
+                                setBookingData({
+                                  ...bookingData,
+                                  needIroning: checked as boolean,
+                                })
+                              }
+                            />
+                            <Label htmlFor="ironing-checkbox" className="cursor-pointer text-sm">
+                              I need ironing (+$30)
+                            </Label>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+
+                    {/* Pet Card */}
+                    <Card>
+                      <CardContent className="pt-4 pb-4 px-3">
+                        <div className="flex flex-col items-center space-y-3">
+                          <div className="flex items-center gap-2">
+                            <PawPrint className="h-5 w-5" style={{ color: "var(--purple-primary)" }} />
+                            <Label className="text-base font-medium">Pet</Label>
+                          </div>
+                          <div className="flex items-center gap-3">
+                            <Checkbox
+                              id="pet-checkbox"
+                              checked={bookingData.hasPet}
+                              onCheckedChange={(checked) =>
+                                setBookingData({
+                                  ...bookingData,
+                                  hasPet: checked as boolean,
+                                })
+                              }
+                            />
+                            <Label htmlFor="pet-checkbox" className="cursor-pointer text-sm">
+                              I have a pet
+                            </Label>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
                 </CardContent>
               </Card>
 
@@ -582,45 +723,6 @@ export default function Checkout() {
                   </Select>
                 </CardContent>
               </Card>
-
-              {/* Section 8: Additional Services */}
-              <Card>
-                <CardHeader>
-                  <CardTitle>Need some help with ironing and decluttering?</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div className="flex items-center space-x-2">
-                    <Checkbox
-                      id="ironing"
-                      checked={bookingData.needIroning}
-                      onCheckedChange={(checked) =>
-                        setBookingData({
-                          ...bookingData,
-                          needIroning: checked as boolean,
-                        })
-                      }
-                    />
-                    <Label htmlFor="ironing" className="cursor-pointer">
-                      Add ironing service (+$30)
-                    </Label>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <Checkbox
-                      id="decluttering"
-                      checked={bookingData.needDecluttering}
-                      onCheckedChange={(checked) =>
-                        setBookingData({
-                          ...bookingData,
-                          needDecluttering: checked as boolean,
-                        })
-                      }
-                    />
-                    <Label htmlFor="decluttering" className="cursor-pointer">
-                      Add decluttering service (+$50)
-                    </Label>
-                  </div>
-                </CardContent>
-              </Card>
             </div>
 
             {/* Right Column - Summary */}
@@ -697,16 +799,26 @@ export default function Checkout() {
                     </div>
                   )}
 
-                  {(bookingData.needIroning || bookingData.needDecluttering) && (
+                  {(bookingData.bedrooms > 0 || bookingData.bathrooms > 0) && (
                     <div>
                       <div className="text-sm font-medium text-muted-foreground">
-                        Additional Services
+                        Home Details
+                      </div>
+                      <div className="space-y-1">
+                        {bookingData.bedrooms > 0 && <div>• {bookingData.bedrooms} bedroom(s)</div>}
+                        {bookingData.bathrooms > 0 && <div>• {bookingData.bathrooms} bathroom(s)</div>}
+                      </div>
+                    </div>
+                  )}
+
+                  {(bookingData.needIroning || bookingData.hasPet) && (
+                    <div>
+                      <div className="text-sm font-medium text-muted-foreground">
+                        Additional Information
                       </div>
                       <div className="space-y-1">
                         {bookingData.needIroning && <div>• Ironing (+$30)</div>}
-                        {bookingData.needDecluttering && (
-                          <div>• Decluttering (+$50)</div>
-                        )}
+                        {bookingData.hasPet && <div>• Has pet</div>}
                       </div>
                     </div>
                   )}
