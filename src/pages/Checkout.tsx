@@ -17,7 +17,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import { Checkbox } from "@/components/ui/checkbox"
 import { Button } from "@/components/ui/button"
 import {
   Popover,
@@ -490,7 +489,7 @@ export default function Checkout() {
                   <CardTitle>Tell us about your home (optional)</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                     {/* Bedrooms Card */}
                     <Card>
                       <CardContent className="pt-4 pb-4 px-3">
@@ -586,55 +585,65 @@ export default function Checkout() {
                     </Card>
 
                     {/* Ironing Service Card */}
-                    <Card>
+                    <Card
+                      className={`cursor-pointer transition-all duration-200 hover:shadow-md ${
+                        bookingData.needIroning
+                          ? "border-2 border-purple-primary"
+                          : "hover:border-purple-primary/50"
+                      }`}
+                      style={
+                        bookingData.needIroning
+                          ? { borderColor: "var(--purple-primary)" }
+                          : undefined
+                      }
+                      onClick={() =>
+                        setBookingData({
+                          ...bookingData,
+                          needIroning: !bookingData.needIroning,
+                        })
+                      }
+                    >
                       <CardContent className="pt-4 pb-4 px-3">
                         <div className="flex flex-col items-center space-y-3">
                           <div className="flex items-center gap-2">
                             <Shirt className="h-5 w-5" style={{ color: "var(--purple-primary)" }} />
                             <Label className="text-base font-medium">Ironing</Label>
                           </div>
-                          <div className="flex items-center gap-3">
-                            <Checkbox
-                              id="ironing-checkbox"
-                              checked={bookingData.needIroning}
-                              onCheckedChange={(checked) =>
-                                setBookingData({
-                                  ...bookingData,
-                                  needIroning: checked as boolean,
-                                })
-                              }
-                            />
-                            <Label htmlFor="ironing-checkbox" className="cursor-pointer text-sm">
-                              I need ironing (+$30)
-                            </Label>
-                          </div>
+                          <Label className="text-sm text-center">
+                            I need ironing
+                          </Label>
                         </div>
                       </CardContent>
                     </Card>
 
                     {/* Pet Card */}
-                    <Card>
+                    <Card
+                      className={`cursor-pointer transition-all duration-200 hover:shadow-md ${
+                        bookingData.hasPet
+                          ? "border-2 border-purple-primary"
+                          : "hover:border-purple-primary/50"
+                      }`}
+                      style={
+                        bookingData.hasPet
+                          ? { borderColor: "var(--purple-primary)" }
+                          : undefined
+                      }
+                      onClick={() =>
+                        setBookingData({
+                          ...bookingData,
+                          hasPet: !bookingData.hasPet,
+                        })
+                      }
+                    >
                       <CardContent className="pt-4 pb-4 px-3">
                         <div className="flex flex-col items-center space-y-3">
                           <div className="flex items-center gap-2">
                             <PawPrint className="h-5 w-5" style={{ color: "var(--purple-primary)" }} />
                             <Label className="text-base font-medium">Pet</Label>
                           </div>
-                          <div className="flex items-center gap-3">
-                            <Checkbox
-                              id="pet-checkbox"
-                              checked={bookingData.hasPet}
-                              onCheckedChange={(checked) =>
-                                setBookingData({
-                                  ...bookingData,
-                                  hasPet: checked as boolean,
-                                })
-                              }
-                            />
-                            <Label htmlFor="pet-checkbox" className="cursor-pointer text-sm">
-                              I have a pet
-                            </Label>
-                          </div>
+                          <Label className="text-sm text-center">
+                            I have a pet
+                          </Label>
                         </div>
                       </CardContent>
                     </Card>
