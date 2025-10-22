@@ -47,9 +47,11 @@ const NavMenuItems = ({ className, onItemClick }: NavMenuItemsProps) => (
       >
         <Button
           variant="ghost"
-          className="w-full md:w-auto h-12 md:h-10 text-base md:text-sm justify-start md:justify-center"
+          className="relative w-full md:w-auto h-12 md:h-10 text-base md:text-sm justify-start md:justify-center transition-all duration-300 hover:bg-white/10 hover:backdrop-blur-md hover:border-white/20 hover:shadow-md overflow-hidden group"
         >
-          {label}
+          {/* Glass shine effect */}
+          <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-teal-light/10 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
+          <span className="relative z-10">{label}</span>
         </Button>
       </a>
     ))}
@@ -62,60 +64,72 @@ export function LpNavbar1() {
   const closeMenu = () => setIsMenuOpen(false);
 
   return (
-    <nav className="bg-background sticky top-0 isolate z-50 border-b py-3.5 md:py-4">
-      <div className="relative container m-auto flex justify-between items-center px-6 md:gap-6">
-        <a href="/" className="shrink-0">
-          <Logo />
-        </a>
+    <nav className="sticky top-4 isolate z-50 px-4 md:px-6">
+      <div className="relative container mx-auto">
+        {/* Glassmorphism container with gradient border */}
+        <div className="relative bg-white/10 dark:bg-teal-dark/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl border border-white/20 shadow-lg shadow-teal-primary/5 overflow-hidden">
+          {/* Gradient border overlay */}
+          <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-teal-light/30 via-transparent to-teal-primary/30 pointer-events-none" style={{ padding: '1px' }} />
 
-        {/* Desktop Navigation */}
-        <div className="hidden w-full flex-row justify-end items-center gap-5 md:flex">
-          <NavMenuItems />
-          <a
-            href="#pricing"
-            onClick={(e) => handleSmoothScroll(e, '#pricing')}
-          >
-            <Button
-              className="h-12 px-8 text-base font-medium focus:ring-4 focus:ring-teal-primary/50 focus:outline-none transition-all hover:opacity-90"
-              style={{ backgroundColor: 'var(--teal-primary)', color: 'white' }}
-            >
-              Book Now
-            </Button>
-          </a>
-        </div>
+          {/* Main content */}
+          <div className="relative flex justify-between items-center px-6 py-4 md:px-8 md:py-5">
+            <a href="/" className="shrink-0 relative z-10 transition-transform hover:scale-105">
+              <Logo />
+            </a>
 
-        {/* Mobile Navigation */}
-        <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
-          <SheetTrigger asChild>
-            <Button
-              variant="ghost"
-              size="icon"
-              className="md:hidden h-11 w-11"
-              aria-label="Open menu"
-            >
-              <Menu className="h-6 w-6" />
-            </Button>
-          </SheetTrigger>
-          <SheetContent side="right" className="w-[300px] sm:w-[350px]">
-            <div className="flex flex-col gap-6 mt-8">
-              <NavMenuItems onItemClick={closeMenu} />
+            {/* Desktop Navigation */}
+            <div className="hidden w-full flex-row justify-end items-center gap-6 md:flex">
+              <NavMenuItems />
               <a
                 href="#pricing"
-                onClick={(e) => {
-                  handleSmoothScroll(e, '#pricing');
-                  closeMenu();
-                }}
+                onClick={(e) => handleSmoothScroll(e, '#pricing')}
               >
                 <Button
-                  className="w-full h-12 px-8 text-base font-medium focus:ring-4 focus:ring-teal-primary/50 focus:outline-none transition-all hover:opacity-90"
+                  className="relative h-12 px-8 text-base font-medium overflow-hidden group transition-all duration-300 hover:shadow-lg hover:shadow-teal-primary/30 hover:scale-105"
                   style={{ backgroundColor: 'var(--teal-primary)', color: 'white' }}
                 >
-                  Book Now
+                  {/* Glass shine effect on hover */}
+                  <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+                  <span className="relative z-10">Book Now</span>
                 </Button>
               </a>
             </div>
-          </SheetContent>
-        </Sheet>
+
+            {/* Mobile Navigation */}
+            <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
+              <SheetTrigger asChild>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="md:hidden h-11 w-11 hover:bg-white/10 transition-colors"
+                  aria-label="Open menu"
+                >
+                  <Menu className="h-6 w-6" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-[300px] sm:w-[350px] bg-white/95 dark:bg-teal-dark/95 backdrop-blur-xl">
+                <div className="flex flex-col gap-6 mt-8">
+                  <NavMenuItems onItemClick={closeMenu} />
+                  <a
+                    href="#pricing"
+                    onClick={(e) => {
+                      handleSmoothScroll(e, '#pricing');
+                      closeMenu();
+                    }}
+                  >
+                    <Button
+                      className="relative w-full h-12 px-8 text-base font-medium overflow-hidden group transition-all duration-300"
+                      style={{ backgroundColor: 'var(--teal-primary)', color: 'white' }}
+                    >
+                      <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+                      <span className="relative z-10">Book Now</span>
+                    </Button>
+                  </a>
+                </div>
+              </SheetContent>
+            </Sheet>
+          </div>
+        </div>
       </div>
     </nav>
   );
