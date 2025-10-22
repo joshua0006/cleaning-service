@@ -8,7 +8,7 @@ import { Footer1 } from "@/components/pro-blocks/landing-page/footers/footer-1"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
 import { Badge } from "@/components/ui/badge"
-import { Check, Minus, Plus, Bed, Bath, Shirt, PawPrint } from "lucide-react"
+import { Check, Minus, Plus, Bed, Bath, Shirt, PawPrint, Clock, Languages } from "lucide-react"
 import { Calendar } from "@/components/ui/calendar"
 import {
   Select,
@@ -663,14 +663,17 @@ export default function Checkout() {
                       setBookingData({ ...bookingData, duration: value })
                     }
                   >
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select duration" />
+                    <SelectTrigger className="h-14 border-2 hover:border-purple-primary/50 transition-all">
+                      <div className="flex items-center gap-3">
+                        <Clock className="h-5 w-5" style={{ color: "var(--purple-primary)" }} />
+                        <SelectValue placeholder="Select duration" />
+                      </div>
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="2-hours">2 hours (1x base price)</SelectItem>
-                      <SelectItem value="3-hours">3 hours (1.4x base price)</SelectItem>
-                      <SelectItem value="4-hours">4 hours (1.8x base price)</SelectItem>
-                      <SelectItem value="5-hours">5+ hours (2.2x base price)</SelectItem>
+                      <SelectItem value="2-hours">2 hours</SelectItem>
+                      <SelectItem value="3-hours">3 hours</SelectItem>
+                      <SelectItem value="4-hours">4 hours</SelectItem>
+                      <SelectItem value="5-hours">5+ hours</SelectItem>
                     </SelectContent>
                   </Select>
                 </CardContent>
@@ -688,8 +691,11 @@ export default function Checkout() {
                       setBookingData({ ...bookingData, startTime: value })
                     }
                   >
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select time" />
+                    <SelectTrigger className="h-14 border-2 hover:border-purple-primary/50 transition-all">
+                      <div className="flex items-center gap-3">
+                        <Clock className="h-5 w-5" style={{ color: "var(--purple-primary)" }} />
+                        <SelectValue placeholder="Select time" />
+                      </div>
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="08:00">8:00 AM</SelectItem>
@@ -720,8 +726,11 @@ export default function Checkout() {
                       setBookingData({ ...bookingData, language: value })
                     }
                   >
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select language" />
+                    <SelectTrigger className="h-14 border-2 hover:border-purple-primary/50 transition-all">
+                      <div className="flex items-center gap-3">
+                        <Languages className="h-5 w-5" style={{ color: "var(--purple-primary)" }} />
+                        <SelectValue placeholder="Select language" />
+                      </div>
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="english">English</SelectItem>
