@@ -12,7 +12,7 @@ export function SocialProof({
   showAvatars = true,
 }: SocialProofProps) {
   return (
-    <div className="inline-flex items-center gap-4 px-6 py-3 bg-white rounded-2xl shadow-md border border-border/50">
+    <div className="inline-flex flex-col lg:flex-row lg:items-center gap-3 lg:gap-4 px-6 py-3 bg-white rounded-2xl shadow-md border border-border/50">
       {/* Count and Label */}
       <div className="flex flex-col">
         <span className="text-2xl font-bold text-foreground">{count}</span>
