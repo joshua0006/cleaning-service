@@ -76,8 +76,8 @@ export function LpNavbar1() {
             onClick={(e) => handleSmoothScroll(e, '#pricing')}
           >
             <Button
-              className="h-12 px-8 text-base font-medium focus:ring-4 focus:ring-orange-cta/50 focus:outline-none transition-all hover:opacity-90"
-              style={{ backgroundColor: 'var(--orange-cta)', color: 'white' }}
+              className="h-12 px-8 text-base font-medium focus:ring-4 focus:ring-teal-primary/50 focus:outline-none transition-all hover:opacity-90"
+              style={{ backgroundColor: 'var(--teal-primary)', color: 'white' }}
             >
               Book Now
             </Button>
@@ -107,8 +107,8 @@ export function LpNavbar1() {
                 }}
               >
                 <Button
-                  className="w-full h-12 px-8 text-base font-medium focus:ring-4 focus:ring-orange-cta/50 focus:outline-none transition-all hover:opacity-90"
-                  style={{ backgroundColor: 'var(--orange-cta)', color: 'white' }}
+                  className="w-full h-12 px-8 text-base font-medium focus:ring-4 focus:ring-teal-primary/50 focus:outline-none transition-all hover:opacity-90"
+                  style={{ backgroundColor: 'var(--teal-primary)', color: 'white' }}
                 >
                   Book Now
                 </Button>

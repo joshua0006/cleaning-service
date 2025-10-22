@@ -17,7 +17,7 @@ export function HeroSection2() {
         <div
           className="absolute left-0 top-0 w-full h-full"
           style={{
-            background: 'var(--purple-light)',
+            background: 'var(--teal-light)',
             clipPath: 'polygon(0% 0%, 0% 65%, 50% 75%, 0% 0%)',
             opacity: 0.9
           }}
@@ -26,7 +26,7 @@ export function HeroSection2() {
         <div
           className="absolute right-0 top-0 w-full h-full"
           style={{
-            background: 'var(--purple-light)',
+            background: 'var(--teal-light)',
             clipPath: 'polygon(100% 0%, 50% 75%, 100% 65%, 100% 0%)',
             opacity: 0.9
           }}
@@ -37,7 +37,7 @@ export function HeroSection2() {
         <div
           className="absolute left-0 top-0 w-full h-full"
           style={{
-            background: 'var(--purple-primary)',
+            background: 'var(--teal-primary)',
             clipPath: 'polygon(0% 40%, 0% 70%, 50% 80%, 50% 70%)',
             opacity: 0.9
           }}
@@ -46,7 +46,7 @@ export function HeroSection2() {
         <div
           className="absolute right-0 top-0 w-full h-full"
           style={{
-            background: 'var(--purple-primary)',
+            background: 'var(--teal-primary)',
             clipPath: 'polygon(100% 30%, 50% 70%, 50% 80%, 100% 70%)',
             opacity: 0.9
           }}

@@ -79,13 +79,13 @@ export function PricingSection3() {
                 key={plan.name}
                 className={`relative overflow-hidden transition-all duration-300 hover:shadow-lg ${
                   plan.highlighted
-                    ? "border-purple-primary shadow-[0_0_0_2px] shadow-purple-primary/20 bg-purple-dark text-white md:scale-105"
-                    : "border-purple-primary/20 hover:border-purple-primary/40"
+                    ? "border-teal-primary shadow-[0_0_0_2px] shadow-teal-primary/20 bg-teal-dark text-white md:scale-105"
+                    : "border-teal-primary/20 hover:border-teal-primary/40"
                 } w-full p-8 sm:p-10`}
               >
                 {/* Most Popular Badge */}
                 {plan.highlighted && (
-                  <Badge className="absolute right-4 top-4 bg-gradient-to-r from-purple-primary to-purple-light border-0 text-white font-semibold px-4 py-1">
+                  <Badge className="absolute right-4 top-4 bg-gradient-to-r from-teal-primary to-teal-light border-0 text-white font-semibold px-4 py-1">
                     Most Popular
                   </Badge>
                 )}
@@ -100,7 +100,7 @@ export function PricingSection3() {
                         className={`text-2xl font-bold ${
                           plan.highlighted
                             ? "text-white"
-                            : "text-purple-dark"
+                            : "text-teal-dark"
                         }`}
                       >
                         {plan.name}
@@ -120,7 +120,7 @@ export function PricingSection3() {
                     <div className="flex items-end gap-1">
                       <span
                         className={`text-5xl font-bold ${
-                          plan.highlighted ? "text-white" : "text-purple-dark"
+                          plan.highlighted ? "text-white" : "text-teal-dark"
                         }`}
                       >
                         ${plan.price}
@@ -141,8 +141,8 @@ export function PricingSection3() {
                       variant={plan.highlighted ? "secondary" : "default"}
                       className={`w-full ${
                         plan.highlighted
-                          ? "bg-white text-purple-dark hover:bg-white/90 font-semibold"
-                          : "bg-purple-primary hover:bg-purple-light text-white font-semibold"
+                          ? "bg-white text-teal-dark hover:bg-white/90 font-semibold"
+                          : "bg-teal-primary hover:bg-teal-light text-white font-semibold"
                       }`}
                     >
                       Get Started
@@ -154,7 +154,7 @@ export function PricingSection3() {
                     className={
                       plan.highlighted
                         ? "bg-white/20"
-                        : "bg-purple-primary/20"
+                        : "bg-teal-primary/20"
                     }
                   />
 
@@ -163,7 +163,7 @@ export function PricingSection3() {
                     {/* Features Header with Plan Inheritance */}
                     <p
                       className={`text-sm font-semibold ${
-                        plan.highlighted ? "text-white" : "text-purple-dark"
+                        plan.highlighted ? "text-white" : "text-teal-dark"
                       }`}
                     >
                       {index === 0
@@ -179,8 +179,8 @@ export function PricingSection3() {
                           <Check
                             className={`h-5 w-5 flex-shrink-0 ${
                               plan.highlighted
-                                ? "text-purple-light"
-                                : "text-purple-primary"
+                                ? "text-teal-light"
+                                : "text-teal-primary"
                             }`}
                           />
                           <span
