@@ -89,11 +89,11 @@ export function HeroSection2() {
               </div>
 
               {/* Image Container */}
-              <div className="relative">
+              <div className="relative flex items-center justify-center">
                 <img
                   src="/smiling-asian-woman-having-spring-clean-removebg-preview.png"
                   alt="Smiling professional cleaner ready for spring cleaning service"
-                  className="w-full h-auto object-contain drop-shadow-2xl"
+                  className="w-[85%] h-auto object-contain drop-shadow-2xl"
                   style={{
                     maskImage: 'linear-gradient(to bottom, black 70%, transparent 100%)',
                     WebkitMaskImage: 'linear-gradient(to bottom, black 70%, transparent 100%)',
@@ -101,9 +101,16 @@ export function HeroSection2() {
                 />
               </div>
 
-              {/* Decorative Background Element */}
+              {/* Solid Teal Circle */}
               <div
-                className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] rounded-full opacity-10 blur-3xl"
+                className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[135%] aspect-square rounded-full opacity-15"
+                style={{ backgroundColor: "var(--teal-primary)" }}
+                aria-hidden="true"
+              />
+
+              {/* Decorative Background Blur */}
+              <div
+                className="absolute -z-5 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] rounded-full opacity-10 blur-3xl"
                 style={{ backgroundColor: "var(--teal-primary)" }}
                 aria-hidden="true"
               />
