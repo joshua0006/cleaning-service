@@ -9,6 +9,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
 import { Badge } from "@/components/ui/badge"
 import { Check, Minus, Plus, Bed, Bath, Shirt, PawPrint, Clock, Languages } from "lucide-react"
+import { stripePromise } from "@/lib/stripe"
 import { Calendar } from "@/components/ui/calendar"
 import {
   Select,
@@ -64,6 +65,8 @@ export default function Checkout() {
     hasPet: false,
   })
 
+  const [isProcessing, setIsProcessing] = useState(false)
+
   // Calculate total price based on selections
   const calculatePrice = () => {
     let basePrice = 0
@@ -96,9 +99,48 @@ export default function Checkout() {
     return basePrice.toFixed(2)
   }
 
-  const handleConfirmBooking = () => {
-    console.log("Booking confirmed:", bookingData)
-    // Handle booking confirmation logic here
+  const handleConfirmBooking = async () => {
+    setIsProcessing(true)
+
+    try {
+      const stripe = await stripePromise
+
+      if (!stripe) {
+        alert("Stripe failed to load. Please refresh the page.")
+        setIsProcessing(false)
+        return
+      }
+
+      // Call backend to create checkout session
+      const response = await fetch("http://localhost:8000/api/create-checkout-session", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(bookingData),
+      })
+
+      if (!response.ok) {
+        throw new Error("Failed to create checkout session")
+      }
+
+      const { sessionId } = await response.json()
+
+      // Redirect to Stripe Checkout using session ID
+      const { error } = await stripe.redirectToCheckout({
+        sessionId,
+      })
+
+      if (error) {
+        console.error("Stripe checkout error:", error)
+        alert("Failed to redirect to payment. Please try again.")
+      }
+    } catch (error) {
+      console.error("Error creating checkout session:", error)
+      alert("An error occurred. Please try again.")
+    } finally {
+      setIsProcessing(false)
+    }
   }
 
   const isFormValid = () => {
@@ -858,14 +900,14 @@ export default function Checkout() {
 
                   <Button
                     onClick={handleConfirmBooking}
-                    disabled={!isFormValid()}
+                    disabled={!isFormValid() || isProcessing}
                     className="w-full h-12 text-base font-medium"
                     style={{
                       backgroundColor: "var(--orange-cta)",
                       color: "white",
                     }}
                   >
-                    Confirm Booking
+                    {isProcessing ? "Processing..." : "Confirm Booking"}
                   </Button>
                 </CardContent>
               </Card>
