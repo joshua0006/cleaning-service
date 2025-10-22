@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useRef, useLayoutEffect } from "react"
+import { useNavigate } from "react-router-dom"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -14,6 +15,7 @@ export function ServiceBookingForm() {
   const [postalCode, setPostalCode] = useState<string>("")
   const [error, setError] = useState<string>("")
   const inputRef = useRef<HTMLInputElement>(null)
+  const navigate = useNavigate()
 
   // Focus lock - prevent focus loss when error state changes
   useLayoutEffect(() => {
@@ -68,8 +70,8 @@ export function ServiceBookingForm() {
 
   const handleBookNow = () => {
     if (postalCode && validatePostalCode(postalCode)) {
-      console.log("Postal Code:", postalCode)
-      // Handle booking logic here
+      // Navigate to checkout with postal code
+      navigate("/checkout", { state: { postalCode } })
     }
   }
 
