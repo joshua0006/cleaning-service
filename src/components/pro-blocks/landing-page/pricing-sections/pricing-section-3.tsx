@@ -155,8 +155,7 @@ export function PricingSection3() {
           <div className="relative z-10 flex flex-col gap-4">
             {/* Icon */}
             <Icon
-              className="w-12 h-12 group-hover:scale-110 transition-transform duration-300"
-              style={{ color: 'var(--teal-primary)' }}
+              className="w-12 h-12 group-hover:scale-110 transition-transform duration-300 text-teal-primary"
             />
 
             {/* Service Name */}

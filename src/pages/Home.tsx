@@ -16,12 +16,7 @@ export default function Home() {
       <StatsSection4 />
       <BentoGrid6 />
       <FeatureSection9 />
-      <TestimonialsSection1
-        quote="We've been using Athena for six months and couldn't be happier. Our home is spotless every time, and their attention to detail is outstanding!"
-        authorName="Monica Kurt"
-        authorRole="Homeowner, Singapore"
-        avatarSrc="/MonicaKurt.png"
-      />
+      <TestimonialsSection1 />
       <PricingSection3 />
       <FaqSection2 />
       <Footer1 />
