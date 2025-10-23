@@ -39,7 +39,7 @@ const logosData = [
 
 export function LogoSection10() {
   return (
-    <section className=" border-b pb-16 lg:pb-24">
+    <section className="bg-white border-b pb-16 lg:pb-24">
       <div className="container-padding-x container mx-auto">
         <div className="flex flex-col items-center gap-8 md:gap-12">
           <div className="section-title-gap-lg flex max-w-xl flex-col items-center text-center">

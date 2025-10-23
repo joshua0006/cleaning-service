@@ -5,12 +5,11 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Tagline } from "@/components/pro-blocks/landing-page/tagline";
 
 export function FaqSection2() {
   return (
     <section
-      className="bg-background section-padding-y border-b"
+      className="bg-gradient-to-b from-teal-light/5 to-white py-8"
       aria-labelledby="faq-heading"
       id="faq"
     >
@@ -18,10 +17,8 @@ export function FaqSection2() {
         <div className="flex flex-col gap-10 lg:flex-row lg:gap-16">
           {/* Left Column */}
           <div className="section-title-gap-lg flex flex-1 flex-col">
-            {/* Category Tag */}
-            <Tagline>FAQ</Tagline>
             {/* Main Title */}
-            <h1 id="faq-heading" className="heading-lg text-foreground">
+            <h1 id="faq-heading" className="heading-lg" style={{ color: 'var(--teal-dark)' }}>
               Find answers to our frequently asked questions
             </h1>
             {/* Section Description */}

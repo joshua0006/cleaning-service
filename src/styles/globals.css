@@ -37,10 +37,14 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
-  --color-purple-primary: var(--purple-primary);
-  --color-purple-light: var(--purple-light);
-  --color-purple-dark: var(--purple-dark);
+  --color-teal-light: var(--teal-light);
+  --color-teal-primary: var(--teal-primary);
+  --color-teal-dark: var(--teal-dark);
   --color-orange-cta: var(--orange-cta);
+  /* Legacy purple variables mapped to teal for backward compatibility */
+  --color-purple-primary: var(--teal-primary);
+  --color-purple-light: var(--teal-light);
+  --color-purple-dark: var(--teal-dark);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -107,16 +111,16 @@
   --sidebar-border: oklch(0.929 0.013 255.508);
   --sidebar-ring: oklch(0.929 0.013 255.508);
 
-  /* Cleaning service design colors - Bright Blue Theme */
-  --purple-primary: oklch(0.59 0.278 239.85);
-  --purple-light: oklch(0.62 0.26 239.85);
-  --purple-dark: oklch(0.19 0.08 265); /* #15275c */
-  --orange-cta: oklch(0.59 0.278 239.85);
+  /* Cleaning service design colors - Teal Theme */
+  --teal-light: oklch(0.565 0.043 188.2); /* #5c8e85 - Light teal for backgrounds */
+  --teal-primary: oklch(0.445 0.047 186.8); /* #356d63 - Primary brand color */
+  --teal-dark: oklch(0.355 0.043 186.5); /* #2a5450 - Dark accent */
+  --orange-cta: oklch(0.445 0.047 186.8); /* Uses teal-primary for CTAs */
 }
 
 @theme {
-  --breakpoint-xl: 80rem;
-  --breakpoint-2xl: 80rem;
+  --breakpoint-xl: 90rem;
+  --breakpoint-2xl: 90rem;
 }
 
 @layer base {
@@ -186,7 +190,7 @@
     padding-inline: 1.5rem;
   }
   .section-padding-y {
-    padding-block: 6rem;
+    padding-block: 1rem;
   }
   .section-title-gap-xl {
     gap: 1.5rem;
@@ -227,7 +231,7 @@
     padding-inline: 1.5rem;
   }
   .section-padding-y {
-    padding-block: 4rem;
+    padding-block: 1rem;
   }
   .section-title-gap-xl {
     gap: 1rem;

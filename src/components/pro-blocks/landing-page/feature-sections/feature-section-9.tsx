@@ -1,97 +1,87 @@
 
 import { CalendarCheck, Clock, Sparkles, Home } from "lucide-react";
-import { Tagline } from "@/components/pro-blocks/landing-page/tagline";
 
 export function FeatureSection9() {
   return (
     <section
-      className="relative section-padding-y border-b overflow-hidden bg-blue-950"
+      className="relative py-8 overflow-hidden"
+      style={{ background: 'var(--teal-primary)' }}
       id="how-it-works"
     >
-      {/* Subtle decorative background elements */}
-      <div className="absolute inset-0 opacity-5 pointer-events-none" aria-hidden="true">
-        <div className="absolute top-0 left-1/4 w-96 h-96 rounded-full blur-3xl"
-          style={{ background: 'var(--purple-primary)' }} />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 rounded-full blur-3xl"
-          style={{ background: 'var(--purple-primary)' }} />
-      </div>
-
-      <div className="container-padding-x container mx-auto flex flex-col gap-10 md:gap-12 relative z-10">
+      <div className="container-padding-x container mx-auto flex flex-col gap-10 md:gap-12">
         <div className="section-title-gap-lg mx-auto flex max-w-xl flex-col items-center text-center">
-          <Tagline>How it works</Tagline>
           <h2 className="heading-lg text-white">
             Book your cleaning in minutes
           </h2>
-          <p className="text-white/90 text-base">
+          <p className="text-white/90 text-base leading-relaxed">
             Simple, fast, and hassle-free booking process to get your home
             sparkling clean.
           </p>
         </div>
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-6 lg:grid-cols-4">
-          <div className="flex flex-col items-center gap-5 text-center group hover:scale-105 transition-transform duration-300">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {/* Step 1 */}
+          <div className="flex flex-col items-center gap-5 text-center p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300 group">
             <div
-              className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl shadow-lg"
-              style={{
-                background: 'var(--purple-primary)',
-                boxShadow: '0 10px 30px -5px rgba(91, 78, 246, 0.5), 0 0 0 3px rgba(91, 78, 246, 0.3)'
-              }}
+              className="flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl bg-white shadow-lg"
             >
-              <CalendarCheck className="text-white h-7 w-7" />
+              <CalendarCheck className="h-9 w-9" style={{ color: 'var(--teal-primary)' }} />
             </div>
             <div className="flex flex-col gap-2">
-              <h3 className="text-white font-semibold text-lg">1. Choose Service</h3>
-              <p className="text-white/80">
+              <h3 className="font-bold text-lg text-white">
+                1. Choose Service
+              </h3>
+              <p className="text-white/80 text-sm leading-relaxed">
                 Select your cleaning type and customize preferences
               </p>
             </div>
           </div>
-          <div className="flex flex-col items-center gap-5 text-center group hover:scale-105 transition-transform duration-300">
+
+          {/* Step 2 */}
+          <div className="flex flex-col items-center gap-5 text-center p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300 group">
             <div
-              className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl shadow-lg"
-              style={{
-                background: 'var(--purple-primary)',
-                boxShadow: '0 10px 30px -5px rgba(91, 78, 246, 0.5), 0 0 0 3px rgba(91, 78, 246, 0.3)'
-              }}
+              className="flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl bg-white shadow-lg"
             >
-              <Clock className="text-white h-7 w-7" />
+              <Clock className="h-9 w-9" style={{ color: 'var(--teal-primary)' }} />
             </div>
             <div className="flex flex-col gap-2">
-              <h3 className="text-white font-semibold text-lg">2. Pick Schedule</h3>
-              <p className="text-white/80">
+              <h3 className="font-bold text-lg text-white">
+                2. Pick Schedule
+              </h3>
+              <p className="text-white/80 text-sm leading-relaxed">
                 Choose your preferred date, time, and frequency
               </p>
             </div>
           </div>
-          <div className="flex flex-col items-center gap-5 text-center group hover:scale-105 transition-transform duration-300">
+
+          {/* Step 3 */}
+          <div className="flex flex-col items-center gap-5 text-center p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300 group">
             <div
-              className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl shadow-lg"
-              style={{
-                background: 'var(--purple-primary)',
-                boxShadow: '0 10px 30px -5px rgba(91, 78, 246, 0.5), 0 0 0 3px rgba(91, 78, 246, 0.3)'
-              }}
+              className="flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl bg-white shadow-lg"
             >
-              <Sparkles className="text-white h-7 w-7" />
+              <Sparkles className="h-9 w-9" style={{ color: 'var(--teal-primary)' }} />
             </div>
             <div className="flex flex-col gap-2">
-              <h3 className="text-white font-semibold text-lg">3. Relax</h3>
-              <p className="text-white/80">
+              <h3 className="font-bold text-lg text-white">
+                3. Relax
+              </h3>
+              <p className="text-white/80 text-sm leading-relaxed">
                 Our professionals handle everything with care
               </p>
             </div>
           </div>
-          <div className="flex flex-col items-center gap-5 text-center group hover:scale-105 transition-transform duration-300">
+
+          {/* Step 4 */}
+          <div className="flex flex-col items-center gap-5 text-center p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300 group">
             <div
-              className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl shadow-lg"
-              style={{
-                background: 'var(--purple-primary)',
-                boxShadow: '0 10px 30px -5px rgba(91, 78, 246, 0.5), 0 0 0 3px rgba(91, 78, 246, 0.3)'
-              }}
+              className="flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl bg-white shadow-lg"
             >
-              <Home className="text-white h-7 w-7" />
+              <Home className="h-9 w-9" style={{ color: 'var(--teal-primary)' }} />
             </div>
             <div className="flex flex-col gap-2">
-              <h3 className="text-white font-semibold text-lg">4. Enjoy</h3>
-              <p className="text-white/80">
+              <h3 className="font-bold text-lg text-white">
+                4. Enjoy
+              </h3>
+              <p className="text-white/80 text-sm leading-relaxed">
                 Come home to a spotless, fresh space
               </p>
             </div>
